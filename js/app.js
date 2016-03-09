@@ -1,4 +1,4 @@
-! function($) {
+(function($) {
 
     "use strict";
 
@@ -404,16 +404,13 @@
         // callback for reset
         resetCallback: function() {}
     };
-    console.log("typing called");
-}(window.jQuery);
+})(window.jQuery);
 
-! function($) {
+(function($) {
   $(".element").typed({
     stringsElement: $('#typed-strings'),
     typeSpeed: 70,
     loop: false
-  }, function() {
-    console.log("called typed");
   });
 
   $(document).ready(function () {
@@ -442,4 +439,4 @@
 
   });
 
-}(window.jQuery);
+})(window.jQuery);
