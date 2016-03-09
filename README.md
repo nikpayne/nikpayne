@@ -1,2 +1,2 @@
-# designation-HTML-CSS
-An assignment as part of the DESIGNATION design course
+# Nik Payne
+An simple wordpress theme for my personal website
