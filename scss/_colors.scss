@@ -13,8 +13,9 @@ body {
   }
   &.spotify {
     background: linear-gradient(to bottom, #F26892 0%,#F3768C 100%);
-    .social a:hover svg path { fill: $spotify_accent; }
-    .typed-cursor { color: $spotify_accent; }
-    .ripple { background-color: $spotify_accent; }
+    background: $spotify_accent;
+    .social a:hover svg path { fill: $spotify_main; }
+    .typed-cursor { color: $spotify_main; }
+    .ripple { background-color: $spotify_main; }
   }
 }

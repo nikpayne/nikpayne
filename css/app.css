@@ -28,6 +28,9 @@ body {
   top: 0;
   right: 0; }
   .header .social {
+    opacity: 0;
+    -webkit-animation: fade-in 1s 3.5s forwards ease-out;
+    animation: fade-in 1s 3.5s forwards ease-out;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -45,6 +48,8 @@ body {
       padding-top: 0.1875rem; }
     .header .social li:not(:last-of-type).instagram a {
       padding-top: 0.125rem; }
+    .header .social li:not(:last-of-type) a svg path {
+      fill: white; }
 
 .main {
   height: 100vh;
@@ -64,7 +69,11 @@ body {
   .main .container {
     max-width: 73.125rem;
     width: 60rem;
-    margin: 0 auto; }
+    margin: 0 auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
     .main .container h1 {
       position: relative;
       opacity: 0;
@@ -151,8 +160,8 @@ body {
   z-index: 1; }
 
 .animate {
-  -webkit-animation: ripple .5s linear;
-  animation: ripple .5s linear; }
+  -webkit-animation: ripple .45s linear;
+  animation: ripple .45s linear; }
 
 @-webkit-keyframes ripple {
   100% {
@@ -185,10 +194,11 @@ body.adapt {
     background-color: #FF8076; }
 
 body.spotify {
-  background: linear-gradient(to bottom, #F26892 0%, #F3768C 100%); }
+  background: linear-gradient(to bottom, #F26892 0%, #F3768C 100%);
+  background: #52F9D4; }
   body.spotify .social a:hover svg path {
-    fill: #52F9D4; }
+    fill: #F3768C; }
   body.spotify .typed-cursor {
-    color: #52F9D4; }
+    color: #F3768C; }
   body.spotify .ripple {
-    background-color: #52F9D4; }
+    background-color: #F3768C; }

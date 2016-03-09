@@ -4,7 +4,10 @@
   position: absolute;
   top: 0;
   right: 0;
+
   .social {
+    opacity: 0;
+    animation: fade-in 1s 3.5s forwards ease-out;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -15,6 +18,7 @@
       a { padding-right: rem(16px); }
       &.behance a { padding-top: rem(3px); }
       &.instagram a { padding-top: rem(2px); }
+      a svg path { fill: rgba(255,255,255,1); }
     }
   }
 }

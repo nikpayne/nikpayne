@@ -10,6 +10,7 @@
     max-width: rem(1170px);
     width: rem(960px);
     margin: 0 auto;
+    user-select: none;
     h1 {
       position: relative;
       opacity: 0;
@@ -75,8 +76,8 @@
 }
 
 .animate {
-    -webkit-animation: ripple .5s linear;
-            animation: ripple .5s linear;
+    -webkit-animation: ripple .45s linear;
+            animation: ripple .45s linear;
 }
 @keyframes ripple {
     100% {

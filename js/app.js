@@ -432,17 +432,18 @@ $(document).ready(function () {
         var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
         ripple.css({top: y, left: x}).addClass('animate');
     });
+    var classes = ["adapt", "parra"];
+    var mainScreen = document.querySelector(".main");
     var body = document.getElementsByTagName("body");
-    body[0].addEventListener('click', function() {
-      if (body[0].classList.contains("adapt")) {
-        body[0].classList.remove("adapt");
-        body[0].classList.add("parra");
-      } else if(body[0].classList.contains("parra")) {
-        body[0].classList.remove("parra");
-        body[0].classList.add("spotify");
-      } else if(body[0].classList.contains("spotify")) {
-        body[0].classList.remove("spotify");
-        body[0].classList.add("adapt");
+    console.log(mainScreen);
+    mainScreen.addEventListener('click', function() {
+      for(var i = 0; i < classes.length; i++) {
+        console.log(mainScreen.classList.contains(classes[i]));
+        if(body[0].classList.contains(classes[i])) {
+          body[0].classList.remove(classes[i]);
+          body[0].classList.add(i === classes.length - 1 ? classes[0] : classes[i+1]);
+          break;
+        }
       }
     }, false);
 
