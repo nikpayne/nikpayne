@@ -16,16 +16,5 @@
       &.behance a { padding-top: rem(3px); }
       &.instagram a { padding-top: rem(2px); }
     }
-    svg {
-      transition: all 300ms ease;
-      path { fill: rgba(255,255,255,1); }
-    }
-    a:hover svg {
-      transition: all 300ms ease;
-      path {
-        transition: all 300ms ease;
-        fill: $accent;
-      }
-    }
   }
 }

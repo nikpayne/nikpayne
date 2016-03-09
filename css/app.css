@@ -7,8 +7,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: "graphik", sans-serif;
-  background: linear-gradient(to bottom, #00888A 0%, #008689 100%); }
+  font-family: "graphik", sans-serif; }
 
 @-webkit-keyframes fade-in {
   0% {
@@ -46,15 +45,6 @@ body {
       padding-top: 0.1875rem; }
     .header .social li:not(:last-of-type).instagram a {
       padding-top: 0.125rem; }
-    .header .social svg {
-      transition: all 300ms ease; }
-      .header .social svg path {
-        fill: white; }
-    .header .social a:hover svg {
-      transition: all 300ms ease; }
-      .header .social a:hover svg path {
-        transition: all 300ms ease;
-        fill: #FF8076; }
 
 .main {
   height: 100vh;
@@ -107,7 +97,6 @@ body {
         color: white; }
 
 .typed-cursor {
-  color: #FF8076;
   opacity: 1;
   -webkit-animation: blink 1s infinite;
   animation: blink 1s infinite; }
@@ -153,7 +142,6 @@ body {
     opacity: 1; } }
 
 .ripple {
-  background-color: #FF8076;
   border-radius: 100%;
   height: 100px;
   position: absolute;
@@ -177,3 +165,30 @@ body {
     -webkit-transform: scale(10);
     transform: scale(10);
     background-color: transparent; } }
+
+body.parra {
+  background: linear-gradient(to bottom, #00888A 0%, #008689 100%); }
+  body.parra .social a:hover svg path {
+    fill: #FF8076; }
+  body.parra .typed-cursor {
+    color: #FF8076; }
+  body.parra .ripple {
+    background-color: #f79800; }
+
+body.adapt {
+  background: linear-gradient(to bottom, #4E47EA 0%, #4D45E7 100%); }
+  body.adapt .social a:hover svg path {
+    fill: #f79800; }
+  body.adapt .typed-cursor {
+    color: #f79800; }
+  body.adapt .ripple {
+    background-color: #FF8076; }
+
+body.spotify {
+  background: linear-gradient(to bottom, #F26892 0%, #F3768C 100%); }
+  body.spotify .social a:hover svg path {
+    fill: #52F9D4; }
+  body.spotify .typed-cursor {
+    color: #52F9D4; }
+  body.spotify .ripple {
+    background-color: #52F9D4; }

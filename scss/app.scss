@@ -9,12 +9,17 @@ body {
   padding: 0;
   margin:0;
   font-family: "graphik", sans-serif;
-  background: linear-gradient(to bottom, #00888A 0%,#008689 100%);
 }
 
-$main: #008689;
-$accent: #FF8076;
-$super-accent: #FF7368;
+$parra_main: #008689;
+$parra_accent: #FF8076;
+$parra_super-accent: #FF7368;
+
+$adapt_main: #000000;
+$adapt_accent: #f79800;
+
+$spotify_main: #F3768C;
+$spotify_accent: #52F9D4;
 
 @keyframes fade-in{
   0% { opacity: 0; }
@@ -24,3 +29,4 @@ $super-accent: #FF7368;
 @import "header";
 @import "main";
 @import "footer";
+@import "colors";
