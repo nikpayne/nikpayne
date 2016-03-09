@@ -404,7 +404,7 @@
         // callback for reset
         resetCallback: function() {}
     };
-
+    console.log("typing called");
 }(window.jQuery);
 
 ! function($) {
@@ -417,6 +417,7 @@
   $(document).ready(function () {
     console.log("flag");
       $('.main').on('click', function (e) {
+        console.log("added ripple functionality");
           var ripple = $(this).find('.ripple');
           ripple.removeClass('animate');
           var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);
@@ -426,10 +427,9 @@
       var classes = ["adapt", "parra"];
       var mainScreen = document.querySelector(".main");
       var body = document.getElementsByTagName("body");
-      console.log(mainScreen);
       mainScreen.addEventListener('click', function() {
+        console.log("added class change functionality");
         for(var i = 0; i < classes.length; i++) {
-          console.log(mainScreen.classList.contains(classes[i]));
           if(body[0].classList.contains(classes[i])) {
             body[0].classList.remove(classes[i]);
             body[0].classList.add(i === classes.length - 1 ? classes[0] : classes[i+1]);
