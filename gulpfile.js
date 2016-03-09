@@ -6,18 +6,18 @@ var gulp = require('gulp'),
 
 gulp.task('serve', ['sass'], function() {
   sync({
-    proxy: 'localhost/sage-coming'
+    proxy: 'localhost/nikpayne'
   });
   gulp.watch(['./*.html']).on('change', sync.reload);
-  gulp.watch(['./scss/_*.scss','./scss/app.scss'],['sass']);
+  gulp.watch(['./scss/_*.scss','./scss/style.scss'],['sass']);
 });
 
 gulp.task('sass', function() {
-  return gulp.src('./scss/app.scss')
+  return gulp.src('./scss/style.scss')
     .pipe(plum())
     .pipe(sass().on('error', sass.logError))
     .pipe(auto({ browsers: ['last 2 versions'], cascade: false }))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('.'))
     .pipe(sync.stream());
 });
 

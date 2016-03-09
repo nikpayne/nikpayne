@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nikolas Payne Full Stack Designer</title>
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="style.css">
   <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="js/app.js"></script>
 </head>
@@ -101,6 +101,11 @@
   </header>
   <main class="main">
     <section class="container">
+      <aside id="typed-strings">
+        <p>^2000designer^2000</p>
+        <p>burrito critic^1000</p>
+        <p>artist by night^1000</p>
+      </aside>
       <h1 class="headline">Nik Payne is a <span class="element"></span><br>from Santa Cruz, California</h1>
       <div class="cta">Find me online</div>
     </section>

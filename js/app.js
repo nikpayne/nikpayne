@@ -409,16 +409,7 @@
 
 $(function(){
       $(".element").typed({
-        strings: [
-          "^2000designer^2000",
-          "fan of minimalism^1000",
-          "straight up pimp^2000",
-          "decent developer^1000",
-          "dispassionate economist^1000",
-          "artist by night^1000",
-          "burrito critic^1000",
-          "young wino^1000"
-        ],
+        stringsElement: $('#typed-strings'),
         typeSpeed: 70,
         loop: false
       });
