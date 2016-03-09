@@ -412,6 +412,8 @@
     stringsElement: $('#typed-strings'),
     typeSpeed: 70,
     loop: false
+  }, function() {
+    console.log("called typed");
   });
 
   $(document).ready(function () {
