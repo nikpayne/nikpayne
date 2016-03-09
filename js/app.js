@@ -404,7 +404,7 @@
         // callback for reset
         resetCallback: function() {}
     };
-})(window.jQuery);
+})(jQuery);
 
 (function($) {
   $(".element").typed({
@@ -439,4 +439,4 @@
 
   });
 
-})(window.jQuery);
+})(jQuery);
