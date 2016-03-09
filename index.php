@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nikolas Payne Full Stack Designer</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script src="js/app.js"></script>
-</head>
-<!-- What's this baby got under the hood? -->
+<?php get_header(); ?>
 <body class="adapt">
   <header class="header">
     <ul class="social">
@@ -111,6 +101,6 @@
     </section>
     <div class="ripple"></div>
   </main>
-  <footer></footer>
+<?php get_footer(); ?>
 </body>
 </html>
