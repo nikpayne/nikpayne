@@ -1,0 +1,26 @@
+@function rem($size) { @return #{$size / 16px;}rem; }
+@function letterspacing($kerning, $pixelHeight) { $rem: $pixelHeight/16; $size: $kerning/1000; @return #{$rem*$size}rem; }
+
+* { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  padding: 0;
+  margin:0;
+  font-family: "graphik", sans-serif;
+  background: linear-gradient(to bottom, #00888A 0%,#008689 100%);
+}
+
+$main: #008689;
+$accent: #FF8076;
+$super-accent: #FF7368;
+
+@keyframes fade-in{
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@import "header";
+@import "main";
+@import "footer";

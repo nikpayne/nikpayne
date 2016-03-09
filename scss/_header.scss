@@ -1,0 +1,31 @@
+.header {
+  height: rem(80px);
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  .social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    a { display: block; }
+    li:not(:last-of-type) {
+      a { padding-right: rem(16px); }
+      &.behance a { padding-top: rem(3px); }
+      &.instagram a { padding-top: rem(2px); }
+    }
+    svg {
+      transition: all 300ms ease;
+      path { fill: rgba(255,255,255,1); }
+    }
+    a:hover svg {
+      transition: all 300ms ease;
+      path {
+        transition: all 300ms ease;
+        fill: $accent;
+      }
+    }
+  }
+}
