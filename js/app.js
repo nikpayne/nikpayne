@@ -415,6 +415,7 @@
   });
 
   $(document).ready(function () {
+    console.log("flag");
       $('.main').on('click', function (e) {
           var ripple = $(this).find('.ripple');
           ripple.removeClass('animate');
