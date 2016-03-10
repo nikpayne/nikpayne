@@ -63,6 +63,9 @@ body {
     .header .social li:not(:last-of-type) a svg path {
       fill: white; }
 
+.logged-in .header {
+  top: 2rem; }
+
 .main {
   height: 100vh;
   width: 100vw;
