@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 
 gulp.task('serve', ['sass'], function() {
   sync({
-    proxy: 'localhost/nikpayne'
+    proxy: 'localhost/painpoints'
   });
   gulp.watch(['./*.html']).on('change', sync.reload);
   gulp.watch(['./scss/_*.scss','./scss/style.scss'],['sass']);

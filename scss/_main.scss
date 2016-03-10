@@ -1,4 +1,8 @@
 .main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -15,7 +19,7 @@
       position: relative;
       opacity: 0;
       animation: fade-in 2s .5s forwards ease-out;
-      font-family: "graphik", sans-serif;
+      font-family: "Medium", sans-serif;
       color: #fff;
       font-size: rem(48px);
       font-weight: 400;

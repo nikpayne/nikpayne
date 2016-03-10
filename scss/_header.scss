@@ -1,9 +1,10 @@
 .header {
   height: rem(80px);
   padding: 20px;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
+  z-index: 100;
 
   .social {
     opacity: 0;

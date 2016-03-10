@@ -39,6 +39,25 @@ $spotify_accent: #52F9D4;
   100% { opacity: 1; }
 }
 
+@font-face {
+  font-family: 'Medium';
+  src:  url('./fonts/medium-regular.eot') format('embedded-opentype'),
+        url('./fonts/medium-regular.woff') format('woff'),
+        url('./fonts/medium-regular.ttf')  format('truetype'),
+        url('./fonts/medium-regular.svg') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Medium';
+  src:  url('./fonts/medium-medium.eot') format('embedded-opentype'),
+        url('./fonts/medium-medium.woff') format('woff'),
+        url('./fonts/medium-medium.ttf')  format('truetype'),
+        url('./fonts/medium-medium.svg') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
 @import "header";
 @import "main";
 @import "footer";
