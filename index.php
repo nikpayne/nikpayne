@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<body class="adapt">
+<body class="adapt <?php if ( is_user_logged_in() ): echo "logged-in"; endif; ?>">
   <header class="header">
     <ul class="social">
       <li class="behance"><a target="_blank" href="http://www.behance.net/nikpayne">
@@ -57,7 +57,7 @@
             </g>
         </svg>
       </a></li>
-      <li class="instagram"><a target="_blank" href="">
+      <li class="instagram"><a target="_blank" href="https://www.instagram.com/vivasantacruz/">
         <!-- <img src="img/instagram.svg" alt="instagram icon"> -->
         <svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -92,9 +92,13 @@
   <main class="main">
     <section class="container">
       <aside id="typed-strings">
-        <p>^2000designer^2000</p>
-        <p>burrito critic^1000</p>
-        <p>artist by night^1000</p>
+        <?php
+        $field = "descriptors";
+        $descriptors = get_field_object($field);
+        for($i = 0; $i < sizeof($descriptors["value"]); $i++):
+          echo '<p>' . $descriptors["value"][$i]["single_phrase"] . '</p>';
+        endfor;
+        ?>
       </aside>
       <h1 class="headline">Nik Payne is a <span class="element"></span><br>from Santa Cruz, California</h1>
       <div class="cta">Find me online</div>
