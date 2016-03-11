@@ -29,11 +29,28 @@
 
 @media screen and (max-width: rem(784px)) {
   .header {
+    position: fixed;
+    display: block;
+    width: 80%;
+    opacity: .75;
     .logged-in & { top: rem(48px); }
     .social {
       li {
         flex-grow: 1 !important;
       }
+    }
+  }
+}
+
+@media screen and (max-width: rem(400px)) {
+  .header {
+    bottom: 0 !important;
+    top: none;
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    li {
+      text-align: center;
     }
   }
 }
