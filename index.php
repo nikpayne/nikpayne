@@ -95,12 +95,18 @@
         <?php
         $field = "descriptors";
         $descriptors = get_field_object($field);
-        for($i = 0; $i < sizeof($descriptors["value"]); $i++):
-          echo '<p>' . $descriptors["value"][$i]["single_phrase"] . '</p>';
+        echo '<p>' . $descriptors["value"][0]["single_phrase"] . '</p>';
+        $arr = array();
+        for($i = 1; $i < sizeof($descriptors["value"]); $i++):
+          array_push($arr, '<p>' . $descriptors["value"][$i]["single_phrase"] . '</p>');
+        endfor;
+        shuffle($arr);
+        for($i = 0; $i < sizeof($arr); $i++):
+          echo $arr[$i];
         endfor;
         ?>
       </aside>
-      <h1 class="headline">Nik Payne is a <span class="element"></span><br>from Santa Cruz, California</h1>
+      <h1 class="headline">Nik Payne is a <span class="dynamic"><span class="element"></span></span><br>from Santa Cruz, California</h1>
       <div class="cta">Find me online</div>
     </section>
     <div class="ripple"></div>

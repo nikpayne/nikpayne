@@ -1,11 +1,13 @@
 body {
   &.parra {
+    background: #00888A;
     background: linear-gradient(to bottom, #00888A 0%,#008689 100%);
     .social a:hover svg path { fill: $parra_accent; }
     .typed-cursor { color: $parra_accent; }
     .ripple { background-color: $adapt_accent; }
   }
   &.adapt {
+    background: #4E47EA;
     background: linear-gradient(to bottom, #4E47EA 0%,#4D45E7 100%);
     .social a:hover svg path { fill: $adapt_accent; }
     .typed-cursor { color: $adapt_accent; }

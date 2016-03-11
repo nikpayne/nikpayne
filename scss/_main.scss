@@ -12,10 +12,14 @@
 
   .container {
     max-width: rem(1170px);
-    width: rem(960px);
+    width: rem(992px);
     margin: 0 auto;
-    user-select: none;
+    // user-select: none;
+    #typed-strings {
+      display: none;
+    }
     h1 {
+      padding: 0 1rem;
       position: relative;
       opacity: 0;
       animation: fade-in 2s .5s forwards ease-out;
@@ -89,4 +93,24 @@
         transform: scale(10);
         background-color: transparent;
     }
+}
+
+@media screen and (max-width: rem(784px)) {
+  .main { .container { h1 { font-size: rem(36px); } } }
+}
+@media screen and (max-width: rem(600px)) {
+  .main { .container { h1 { font-size: rem(24px); } } }
+}
+@media screen and (max-width: rem(400px)) {
+  .main {
+    .container {
+      h1 {
+        font-size: rem(36px);
+        .dynamic {
+          display: block;
+          margin-bottom: -2.5rem;
+        }
+      }
+    }
+  }
 }

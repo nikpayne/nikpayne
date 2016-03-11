@@ -14,7 +14,9 @@ Text Domain: twentythirteen
   box-sizing: border-box; }
 
 html {
-  font-size: 16px; }
+  font-size: 16px;
+  width: 100%;
+  height: 100%; }
 
 body {
   padding: 0;
@@ -52,6 +54,8 @@ body {
   top: 0;
   right: 0;
   z-index: 100; }
+  .logged-in .header {
+    top: 2rem; }
   .header .social {
     opacity: 0;
     -webkit-animation: fade-in 1s 3.5s forwards ease-out;
@@ -76,8 +80,13 @@ body {
     .header .social li:not(:last-of-type) a svg path {
       fill: white; }
 
-.logged-in .header {
-  top: 2rem; }
+@media screen and (max-width: 49rem) {
+  .logged-in .header {
+    top: 3rem; }
+  .header .social li {
+    -webkit-flex-grow: 1 !important;
+    -ms-flex-positive: 1 !important;
+    flex-grow: 1 !important; } }
 
 .main {
   position: absolute;
@@ -100,13 +109,12 @@ body {
   justify-content: center; }
   .main .container {
     max-width: 73.125rem;
-    width: 60rem;
-    margin: 0 auto;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; }
+    width: 62rem;
+    margin: 0 auto; }
+    .main .container #typed-strings {
+      display: none; }
     .main .container h1 {
+      padding: 0 1rem;
       position: relative;
       opacity: 0;
       -webkit-animation: fade-in 2s .5s forwards ease-out;
@@ -207,7 +215,23 @@ body {
     transform: scale(10);
     background-color: transparent; } }
 
+@media screen and (max-width: 49rem) {
+  .main .container h1 {
+    font-size: 2.25rem; } }
+
+@media screen and (max-width: 37.5rem) {
+  .main .container h1 {
+    font-size: 1.5rem; } }
+
+@media screen and (max-width: 25rem) {
+  .main .container h1 {
+    font-size: 2.25rem; }
+    .main .container h1 .dynamic {
+      display: block;
+      margin-bottom: -2.5rem; } }
+
 body.parra {
+  background: #00888A;
   background: linear-gradient(to bottom, #00888A 0%, #008689 100%); }
   body.parra .social a:hover svg path {
     fill: #FF8076; }
@@ -217,6 +241,7 @@ body.parra {
     background-color: #f79800; }
 
 body.adapt {
+  background: #4E47EA;
   background: linear-gradient(to bottom, #4E47EA 0%, #4D45E7 100%); }
   body.adapt .social a:hover svg path {
     fill: #f79800; }

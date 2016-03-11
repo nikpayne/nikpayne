@@ -6,6 +6,8 @@
   right: 0;
   z-index: 100;
 
+  .logged-in & { top: rem(32px); }
+
   .social {
     opacity: 0;
     animation: fade-in 1s 3.5s forwards ease-out;
@@ -24,6 +26,14 @@
   }
 }
 
-.logged-in .header {
-  top: rem(32px);
+
+@media screen and (max-width: rem(784px)) {
+  .header {
+    .logged-in & { top: rem(48px); }
+    .social {
+      li {
+        flex-grow: 1 !important;
+      }
+    }
+  }
 }
