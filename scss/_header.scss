@@ -44,11 +44,24 @@
 
 @media screen and (max-width: rem(400px)) {
   .header {
-    bottom: 0 !important;
-    top: none;
     display: block;
-    width: 100%;
-    padding: 1.5rem;
+    width: 1px;
+    width: 1px;
+    padding: 0;
+    top: 0;
+    right: 0;
+
+    &.active {
+      display: none;
+      opacity: 1;
+      height: 100vh;
+      width: 100vw;
+      padding: 2rem;
+      display: flex;
+      background: black;
+      align-items: center;
+      justify-content: center;
+    }
     li {
       text-align: center;
     }

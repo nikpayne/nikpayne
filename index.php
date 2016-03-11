@@ -107,7 +107,7 @@
         ?>
       </aside>
       <h1 class="headline">Nik Payne is a <span class="dynamic"><span class="element"></span></span><br>from Santa Cruz, California</h1>
-      <div class="cta">Find me online</div>
+      <div class="cta">Hit me up</div>
     </section>
     <div class="ripple"></div>
   </main>
