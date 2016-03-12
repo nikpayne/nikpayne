@@ -420,6 +420,7 @@
       var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
       ripple.css({top: y, left: x}).addClass('animate');
     });
+
     var classes = ["adapt", "parra"];
     var mainScreen = document.querySelector(".main");
     var body = document.getElementsByTagName("body");
@@ -432,8 +433,8 @@
         }
       }
     }, false);
-    console.log("event sucess!");
-    $('.header__hamburger').on("click", function(){
+
+    $('.hamburger').on("click", function(){
       $('.header').toggleClass("active");
     });
   });

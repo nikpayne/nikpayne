@@ -2,6 +2,7 @@
   height: rem(80px);
   padding: 20px;
   position: fixed;
+  display: flex;
   top: 0;
   right: 0;
   z-index: 100;
@@ -10,6 +11,7 @@
     top: rem(32px);
   }
   .social {
+    opacity: 0;
     animation: fade-in 1s 3.5s forwards ease-out;
     list-style: none;
     padding: 0;
@@ -17,10 +19,19 @@
     display: flex;
     flex-direction: row;
     a { display: block; }
-    li:not(:last-of-type) {
-      a { padding-right: rem(16px); }
-      &.behance a { padding-top: rem(3px); }
-      &.instagram a { padding-top: rem(2px); }
+    li {
+      a { padding: rem(8px); }
+      &.behance a {
+        padding-top: rem(11px);
+        padding-bottom: rem(12px);
+      }
+      &.linkedin a {
+        padding-bottom: rem(11px);
+      }
+      &.instagram a {
+        padding-top: rem(10px);
+        padding-bottom: rem(9px);
+      }
       a svg path { fill: rgba(255,255,255,1); }
     }
   }
@@ -30,7 +41,7 @@
 @media screen and (max-width: rem(784px)) {
   .header {
     position: fixed;
-    display: block;
+    display: flex;
     height: rem(70px);
     width: rem(70px);
     padding: 0px;
@@ -39,28 +50,68 @@
     .social {
       display: none;
     }
+    &.active {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(217,40,130,.90);
+
+      .social {
+        display: flex;
+        padding: 0;
+      }
+      .hamburger span {
+        &:nth-child(1), &:nth-child(3) { opacity: 0; }
+        &:nth-child(2) {
+          background: rgba(255,255,255,0);
+          &::before {
+            opacity: 1;
+            transform: rotateZ(-45deg);
+          }
+          &::after {
+            opacity: 1;
+            transform: rotateZ(45deg);
+          }
+        }
+      }
+    }
   }
   .hamburger {
     position: fixed;
+    display: block;
+    z-index: 200;
     top: 0;
     right: 0;
-    display: block;
     height: rem(70px);
     width: rem(70px);
-    background: black;
+
     span {
+      position: absolute;
       display: block;
+      opacity: 1;
+      top: 0;
+      left: 23px;
       height: 2px;
       width: 24px;
       background: white;
-      &:nth-child(1){
-
-      }
+      transition: all 200ms ease;
+      &:nth-child(1){ top: 27px; }
+      &:nth-child(3){ top: 39px; }
       &:nth-child(2){
-
-      }
-      &:nth-child(3){
-
+        top: 33px;
+        background: rgba(255,255,255,1);
+        transition: background-color 160ms ease;
+        &::before, &::after {
+          transition: transform 160ms ease-in-out;
+          position: absolute;
+          content: "";
+          height: 2px;
+          width: 24px;
+          display: block;
+          background: white;
+        }
       }
     }
   }
