@@ -1,23 +1,17 @@
+@mixin color-scheme($from, $to, $accent-from, $accent-to){
+  background: $from;
+  background: linear-gradient(to bottom, $from 0%, $to 100%);;
+  .social a:hover svg path { fill: $accent-from; }
+  .typed-cursor { color: $accent-from; }
+  .ripple { background-color: $accent-from; }
+  .header:not(.active) .hamburger span, .header:not(.active) .hamburger span::before, .header:not(.active) .hamburger span::after { background-color: $accent-to; }
+}
+
 body {
   &.parra {
-    background: #00888A;
-    background: linear-gradient(to bottom, #00888A 0%,#008689 100%);
-    .social a:hover svg path { fill: $parra_accent; }
-    .typed-cursor { color: $parra_accent; }
-    .ripple { background-color: $adapt_accent; }
+    @include color-scheme(#00888A, #008689, $parra_accent, $adapt_accent);
   }
   &.adapt {
-    background: #4E47EA;
-    background: linear-gradient(to bottom, #4E47EA 0%,#4D45E7 100%);
-    .social a:hover svg path { fill: $adapt_accent; }
-    .typed-cursor { color: $adapt_accent; }
-    .ripple { background-color: $parra_accent; }
-  }
-  &.spotify {
-    background: linear-gradient(to bottom, #F26892 0%,#F3768C 100%);
-    background: $spotify_accent;
-    .social a:hover svg path { fill: $spotify_main; }
-    .typed-cursor { color: $spotify_main; }
-    .ripple { background-color: $spotify_main; }
+    @include color-scheme(#4E47EA, #4D45E7, $adapt_accent, $parra_accent);
   }
 }

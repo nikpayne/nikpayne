@@ -6,6 +6,8 @@
   top: 0;
   right: 0;
   z-index: 100;
+  background-color: rgba(255,255,255,0);
+  transition: background 200ms ease, height 0ms 200ms ease, width 0ms 200ms ease;
 
   .logged-in & {
     top: rem(32px);
@@ -18,21 +20,12 @@
     margin: 0;
     display: flex;
     flex-direction: row;
-    a { display: block; }
-    li {
-      a { padding: rem(8px); }
-      &.behance a {
-        padding-top: rem(11px);
-        padding-bottom: rem(12px);
+    li a {
+      display: block;
+      svg {
+        height: 38px;
+        path { fill: rgba(255,255,255,1); }
       }
-      &.linkedin a {
-        padding-bottom: rem(11px);
-      }
-      &.instagram a {
-        padding-top: rem(10px);
-        padding-bottom: rem(9px);
-      }
-      a svg path { fill: rgba(255,255,255,1); }
     }
   }
 }
@@ -46,33 +39,55 @@
     width: rem(70px);
     padding: 0px;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    animation: none;
+
     .logged-in & { top: rem(48px); }
     .social {
-      display: none;
+      opacity: 0;
+      animation: none;
+      transform: perspective(600px) rotateX(-10deg) scale(.95,.95);
+      transition: all 200ms linear;
+      li a svg {
+        transition: all 200ms ease;
+        height: 40px;
+        width: auto;
+      }
     }
+
     &.active {
       height: 100vh;
       width: 100vw;
       display: flex;
-      align-items: center;
-      justify-content: center;
       background: rgba(217,40,130,.90);
+      transition: background 200ms ease;
 
       .social {
-        display: flex;
-        padding: 0;
+        opacity: 1;
+        transform: perspective(600px) rotateX(0deg);
+        transition: all 200ms linear;
+        li a svg {
+          transition: all 200ms ease;
+          height: 40px;
+          width: auto;
+        }
       }
-      .hamburger span {
-        &:nth-child(1), &:nth-child(3) { opacity: 0; }
-        &:nth-child(2) {
-          background: rgba(255,255,255,0);
-          &::before {
-            opacity: 1;
-            transform: rotateZ(-45deg);
-          }
-          &::after {
-            opacity: 1;
-            transform: rotateZ(45deg);
+      .hamburger {
+        transform: rotateZ(180deg);
+        transition: all 200ms ease-out;
+        span {
+          &:nth-child(1), &:nth-child(3) { opacity: 0; }
+          &:nth-child(2) {
+            background: rgba(255,255,255,0);
+            &::before {
+              opacity: 1;
+              transform: rotateZ(-45deg);
+            }
+            &::after {
+              opacity: 1;
+              transform: rotateZ(45deg);
+            }
           }
         }
       }
@@ -86,6 +101,10 @@
     right: 0;
     height: rem(70px);
     width: rem(70px);
+    opacity: 0;
+    animation: fade-in 1s 3.5s forwards ease-out;
+    transform: rotateZ(0deg);
+    transition: all 200ms ease-out;
 
     span {
       position: absolute;

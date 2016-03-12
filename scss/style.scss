@@ -10,6 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: colorful, minimal, elegant
 Text Domain: twentythirteen
 */
+/*
+sketch:type=(["'])(?:(?=(\\?))\2.)*?\1
+*/
 
 @function rem($size) { @return #{$size / 16px;}rem; }
 @function letterspacing($kerning, $pixelHeight) { $rem: $pixelHeight/16; $size: $kerning/1000; @return #{$rem*$size}rem; }

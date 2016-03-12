@@ -10,6 +10,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: colorful, minimal, elegant
 Text Domain: twentythirteen
 */
+/*
+sketch:type=(["'])(?:(?=(\\?))\2.)*?\1
+*/
 * {
   box-sizing: border-box; }
 
@@ -56,7 +59,9 @@ body {
   display: flex;
   top: 0;
   right: 0;
-  z-index: 100; }
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background 200ms ease, height 0ms 200ms ease, width 0ms 200ms ease; }
   .logged-in .header {
     top: 2rem; }
   .header .social {
@@ -72,20 +77,12 @@ body {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row; }
-    .header .social a {
-      display: block; }
     .header .social li a {
-      padding: 0.5rem; }
-    .header .social li.behance a {
-      padding-top: 0.6875rem;
-      padding-bottom: 0.75rem; }
-    .header .social li.linkedin a {
-      padding-bottom: 0.6875rem; }
-    .header .social li.instagram a {
-      padding-top: 0.625rem;
-      padding-bottom: 0.5625rem; }
-    .header .social li a svg path {
-      fill: white; }
+      display: block; }
+      .header .social li a svg {
+        height: 38px; }
+        .header .social li a svg path {
+          fill: white; }
 
 @media screen and (max-width: 49rem) {
   .header {
@@ -96,41 +93,61 @@ body {
     height: 4.375rem;
     width: 4.375rem;
     padding: 0px;
-    cursor: pointer; }
+    cursor: pointer;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-animation: none;
+    animation: none; }
     .logged-in .header {
       top: 3rem; }
     .header .social {
-      display: none; }
+      opacity: 0;
+      -webkit-animation: none;
+      animation: none;
+      -webkit-transform: perspective(600px) rotateX(-10deg) scale(0.95, 0.95);
+      transform: perspective(600px) rotateX(-10deg) scale(0.95, 0.95);
+      transition: all 200ms linear; }
+      .header .social li a svg {
+        transition: all 200ms ease;
+        height: 40px;
+        width: auto; }
     .header.active {
       height: 100vh;
       width: 100vw;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      background: rgba(217, 40, 130, 0.9); }
+      background: rgba(217, 40, 130, 0.9);
+      transition: background 200ms ease; }
       .header.active .social {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        padding: 0; }
-      .header.active .hamburger span:nth-child(1), .header.active .hamburger span:nth-child(3) {
-        opacity: 0; }
-      .header.active .hamburger span:nth-child(2) {
-        background: rgba(255, 255, 255, 0); }
-        .header.active .hamburger span:nth-child(2)::before {
-          opacity: 1;
-          -webkit-transform: rotateZ(-45deg);
-          transform: rotateZ(-45deg); }
-        .header.active .hamburger span:nth-child(2)::after {
-          opacity: 1;
-          -webkit-transform: rotateZ(45deg);
-          transform: rotateZ(45deg); }
+        opacity: 1;
+        -webkit-transform: perspective(600px) rotateX(0deg);
+        transform: perspective(600px) rotateX(0deg);
+        transition: all 200ms linear; }
+        .header.active .social li a svg {
+          transition: all 200ms ease;
+          height: 40px;
+          width: auto; }
+      .header.active .hamburger {
+        -webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+        transition: all 200ms ease-out; }
+        .header.active .hamburger span:nth-child(1), .header.active .hamburger span:nth-child(3) {
+          opacity: 0; }
+        .header.active .hamburger span:nth-child(2) {
+          background: rgba(255, 255, 255, 0); }
+          .header.active .hamburger span:nth-child(2)::before {
+            opacity: 1;
+            -webkit-transform: rotateZ(-45deg);
+            transform: rotateZ(-45deg); }
+          .header.active .hamburger span:nth-child(2)::after {
+            opacity: 1;
+            -webkit-transform: rotateZ(45deg);
+            transform: rotateZ(45deg); }
   .hamburger {
     position: fixed;
     display: block;
@@ -138,7 +155,13 @@ body {
     top: 0;
     right: 0;
     height: 4.375rem;
-    width: 4.375rem; }
+    width: 4.375rem;
+    opacity: 0;
+    -webkit-animation: fade-in 1s 3.5s forwards ease-out;
+    animation: fade-in 1s 3.5s forwards ease-out;
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+    transition: all 200ms ease-out; }
     .hamburger span {
       position: absolute;
       display: block;
@@ -197,7 +220,6 @@ body {
       padding: 0 1rem;
       position: relative;
       opacity: 0;
-      display: none;
       -webkit-animation: fade-in 2s .5s forwards ease-out;
       animation: fade-in 2s .5s forwards ease-out;
       font-family: "Medium", sans-serif;
@@ -301,9 +323,10 @@ body {
 
 @media screen and (max-width: 37.5rem) {
   .main .container h1 {
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    display: none; }
   .main .container .cta {
-    display: inline-block; } }
+    display: none; } }
 
 @media screen and (max-width: 25rem) {
   .main .container h1 {
@@ -320,6 +343,8 @@ body.parra {
   body.parra .typed-cursor {
     color: #FF8076; }
   body.parra .ripple {
+    background-color: #FF8076; }
+  body.parra .header:not(.active) .hamburger span, body.parra .header:not(.active) .hamburger span::before, body.parra .header:not(.active) .hamburger span::after {
     background-color: #f79800; }
 
 body.adapt {
@@ -330,14 +355,6 @@ body.adapt {
   body.adapt .typed-cursor {
     color: #f79800; }
   body.adapt .ripple {
+    background-color: #f79800; }
+  body.adapt .header:not(.active) .hamburger span, body.adapt .header:not(.active) .hamburger span::before, body.adapt .header:not(.active) .hamburger span::after {
     background-color: #FF8076; }
-
-body.spotify {
-  background: linear-gradient(to bottom, #F26892 0%, #F3768C 100%);
-  background: #52F9D4; }
-  body.spotify .social a:hover svg path {
-    fill: #F3768C; }
-  body.spotify .typed-cursor {
-    color: #F3768C; }
-  body.spotify .ripple {
-    background-color: #F3768C; }

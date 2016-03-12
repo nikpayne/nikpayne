@@ -22,7 +22,6 @@
       padding: 0 1rem;
       position: relative;
       opacity: 0;
-      display: none;
       animation: fade-in 2s .5s forwards ease-out;
       font-family: "Medium", sans-serif;
       color: #fff;
@@ -103,9 +102,10 @@
     .container {
       h1 {
         font-size: rem(24px);
+        display: none;
       }
       .cta {
-        display: inline-block;
+        display: none;
       }
     }
   }
