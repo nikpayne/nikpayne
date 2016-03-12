@@ -6,10 +6,10 @@
   right: 0;
   z-index: 100;
 
-  .logged-in & { top: rem(32px); }
-
+  .logged-in & {
+    top: rem(32px);
+  }
   .social {
-    opacity: 0;
     animation: fade-in 1s 3.5s forwards ease-out;
     list-style: none;
     padding: 0;
@@ -31,39 +31,37 @@
   .header {
     position: fixed;
     display: block;
-    width: 80%;
-    opacity: .75;
+    height: rem(70px);
+    width: rem(70px);
+    padding: 0px;
+    cursor: pointer;
     .logged-in & { top: rem(48px); }
     .social {
-      li {
-        flex-grow: 1 !important;
-      }
+      display: none;
     }
   }
-}
-
-@media screen and (max-width: rem(400px)) {
-  .header {
-    display: block;
-    width: 1px;
-    width: 1px;
-    padding: 0;
+  .hamburger {
+    position: fixed;
     top: 0;
     right: 0;
+    display: block;
+    height: rem(70px);
+    width: rem(70px);
+    background: black;
+    span {
+      display: block;
+      height: 2px;
+      width: 24px;
+      background: white;
+      &:nth-child(1){
 
-    &.active {
-      display: none;
-      opacity: 1;
-      height: 100vh;
-      width: 100vw;
-      padding: 2rem;
-      display: flex;
-      background: black;
-      align-items: center;
-      justify-content: center;
-    }
-    li {
-      text-align: center;
+      }
+      &:nth-child(2){
+
+      }
+      &:nth-child(3){
+
+      }
     }
   }
 }

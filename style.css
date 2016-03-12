@@ -57,7 +57,6 @@ body {
   .logged-in .header {
     top: 2rem; }
   .header .social {
-    opacity: 0;
     -webkit-animation: fade-in 1s 3.5s forwards ease-out;
     animation: fade-in 1s 3.5s forwards ease-out;
     list-style: none;
@@ -84,41 +83,27 @@ body {
   .header {
     position: fixed;
     display: block;
-    width: 80%;
-    opacity: .75; }
+    height: 4.375rem;
+    width: 4.375rem;
+    padding: 0px;
+    cursor: pointer; }
     .logged-in .header {
       top: 3rem; }
-    .header .social li {
-      -webkit-flex-grow: 1 !important;
-      -ms-flex-positive: 1 !important;
-      flex-grow: 1 !important; } }
-
-@media screen and (max-width: 25rem) {
-  .header {
-    display: block;
-    width: 1px;
-    width: 1px;
-    padding: 0;
+    .header .social {
+      display: none; }
+  .hamburger {
+    position: fixed;
     top: 0;
-    right: 0; }
-    .header.active {
-      display: none;
-      opacity: 1;
-      height: 100vh;
-      width: 100vw;
-      padding: 2rem;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      background: black;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center; }
-    .header li {
-      text-align: center; } }
+    right: 0;
+    display: block;
+    height: 4.375rem;
+    width: 4.375rem;
+    background: black; }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      width: 24px;
+      background: white; } }
 
 .main {
   position: absolute;

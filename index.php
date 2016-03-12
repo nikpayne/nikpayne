@@ -1,6 +1,11 @@
 <?php get_header(); ?>
 <body class="adapt <?php if ( is_user_logged_in() ): echo "logged-in"; endif; ?>">
   <header class="header">
+    <nav class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </nav>
     <ul class="social">
       <li class="behance"><a target="_blank" href="http://www.behance.net/nikpayne">
         <!-- <img src="img/behance.svg" alt="behance icon"> -->

@@ -414,7 +414,6 @@
       loop: false
     });
     $('.main').on('click', function (e) {
-      console.log("added ripple functionality");
       var ripple = $(this).find('.ripple');
       ripple.removeClass('animate');
       var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);
@@ -425,7 +424,6 @@
     var mainScreen = document.querySelector(".main");
     var body = document.getElementsByTagName("body");
     mainScreen.addEventListener('click', function() {
-      console.log("added class change functionality");
       for(var i = 0; i < classes.length; i++) {
         if(body[0].classList.contains(classes[i])) {
           body[0].classList.remove(classes[i]);
@@ -434,7 +432,10 @@
         }
       }
     }, false);
-
+    console.log("event sucess!");
+    $('.header__hamburger').on("click", function(){
+      $('.header').toggleClass("active");
+    });
   });
 
 })(window.jQuery);
