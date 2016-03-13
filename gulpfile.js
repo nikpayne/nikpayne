@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     plum = require('gulp-plumber'),
     sync = require('browser-sync'),
-    auto = require('gulp-autoprefixer');
+    auto = require('gulp-autoprefixer'),
+    gzip = require('gulp-zip');
 
 gulp.task('serve', ['sass'], function() {
   sync({
@@ -26,3 +27,9 @@ gulp.task('watch', ['serve'], function() {
 });
 
 gulp.task('default', ['serve'], function() {});
+
+gulp.task('zip', [], function() {
+  return gulp.src(['./img', './*.php', './*.css', './*.png', './fonts', './js', './partials'])
+    .pipe(gzip('nikpayne.zip'))
+    .pipe(gulp.dest('dist'));
+});

@@ -1275,12 +1275,18 @@
       $('.header').addClass("active");
     });
 
-    $('.social__wrapper').on("click", function(){
-      $('.header').addClass("out");
-      setTimeout(function(){
-        $('.header').removeClass("out").removeClass("active");
-      }, 300);
+    $('.social__wrapper').on("click", function(e){
+      if (e.target === this){
+        $('.header').addClass("out");
+        setTimeout(function(){
+          $('.header').removeClass("out").removeClass("active");
+        }, 300);
+      } else {
+        $('.social__main').toggleClass("active");
+        // e.preventDefault();
+      }
     });
+
   });
 
 })(window.jQuery);

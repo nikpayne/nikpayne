@@ -7,7 +7,6 @@
   height: rem(20px);
   width: rem(20px);
   transition: background 200ms ease-out, height 0ms 300ms ease-out, width 0ms 300ms ease-out;
-  .logged-in & { top: rem(48px); }
   &.active {
     height: 100%;
     width: 100%;
@@ -37,7 +36,7 @@
     cursor: pointer;
 
     top: -7%;
-    transform: perspective(400px) translateX(-30deg);
+    transform: perspective(200px) translateX(-30deg);
   }
   &__main {
     display: flex;
@@ -56,13 +55,13 @@
   .active &__wrapper {
     opacity: 1;
     top: 0%;
-    transform: perspective(400px) translateX(0deg);
+    transform: perspective(200px) translateX(0deg);
     transition: all 400ms ease-out;
   }
   .out &__wrapper {
     opacity: 0 !important;
     top: 7% !important;
-    transform: perspective(400px) translateX(30deg) !important;
+    transform: perspective(200px) translateX(30deg) !important;
     transition: all 400ms ease-in;
   }
 }
@@ -140,10 +139,17 @@
 @media screen and (min-width: 500px) {
   .social {
     &__main {
+      transform: rotateZ(0deg);
+      transition: all 200ms ease;
       li a {
         svg {
           height: 50px !important;
           width: 50px;
+          &:visited {
+            path {
+              fill: black;
+            }
+          }
           &:hover {
             path {
               fill: #FFD600;
@@ -155,9 +161,15 @@
           &:active {
             path {
               fill: #007A87;
+              fill: yellow;
             }
           }
         }
+
+      }
+      &.active {
+        transform: rotateZ(360deg);
+        transition: all 200ms ease;
       }
     }
   }

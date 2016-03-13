@@ -8,7 +8,7 @@
     </nav>
     <section class="social__wrapper">
       <ul class="social__main">
-        <li class="behance"><a target="_blank" href="http://www.behance.net/nikpayne">
+        <li class="behance"><a class="social__link" target="_blank" href="http://www.behance.net/nikpayne">
           <svg title="behance icon" width="40px" height="30px" viewBox="0 0 40 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g id="Desktop-Copy-7" transform="translate(-404.000000, -284.000000)" fill="#FFFFFF">
@@ -20,7 +20,7 @@
           </svg>
 
         </a></li>
-        <li class="linkedin"><a target="_blank" href="https://www.linkedin.com/in/nikolas-payne-82652550">
+        <li class="linkedin"><a class="social__link" target="_blank" href="https://www.linkedin.com/in/nikolas-payne-82652550">
           <svg title="linkedin icon" width="38px" height="30px" viewBox="0 0 38 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g id="Desktop-Copy-7" transform="translate(-444.000000, -284.000000)" fill="#FFFFFF">
@@ -31,7 +31,7 @@
               </g>
           </svg>
         </a></li>
-        <li class="github"><a target="_blank" href="http://www.github.com/nikpayne">
+        <li class="github"><a  class="social__link" target="_blank" href="http://www.github.com/nikpayne">
           <svg title="github icon" width="37px" height="30px" viewBox="0 0 37 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g id="Desktop-Copy-7" transform="translate(-482.000000, -284.000000)" fill="#FFFFFF">
@@ -42,7 +42,7 @@
               </g>
           </svg>
         </a></li>
-        <li class="facebook"><a target="_blank" href="http://www.facebook.com/enjoytoday">
+        <li class="facebook"><a  class="social__link" target="_blank" href="http://www.facebook.com/enjoytoday">
           <svg title="facebook icon" width="28px" height="30px" viewBox="0 0 28 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g id="Desktop-Copy-7" transform="translate(-519.000000, -284.000000)" fill="#FFFFFF">
@@ -53,7 +53,7 @@
               </g>
           </svg>
         </a></li>
-        <li class="instagram"><a target="_blank" href="https://www.instagram.com/vivasantacruz/">
+        <li class="instagram"><a  class="social__link" target="_blank" href="https://www.instagram.com/vivasantacruz/">
           <svg title="instagram icon" width="34px" height="30px" viewBox="0 0 34 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g id="Desktop-Copy-7" transform="translate(-547.000000, -284.000000)" fill="#FFFFFF">
@@ -66,7 +66,7 @@
               </g>
           </svg>
         </a></li>
-        <li class="codepen"><a target="_blank" href="http://codepen.io/npayne/">
+        <li class="codepen"><a class="social__link" target="_blank" href="http://codepen.io/npayne/">
           <svg title="codepen icon" width="38px" height="30px" viewBox="0 0 38 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" >
                   <g id="Desktop-Copy-7"  transform="translate(-580.000000, -284.000000)" fill="#FFFFFF">
@@ -79,6 +79,7 @@
         </a></li>
       </ul>
     </section>
+    <div class="ripple"></div>
   </header>
   <main class="main">
     <section class="container">
