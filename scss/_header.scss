@@ -1,135 +1,132 @@
 .header {
-  height: rem(80px);
-  padding: 20px;
   position: fixed;
-  display: flex;
+  z-index: 200;
   top: 0;
   right: 0;
-  z-index: 100;
-  background-color: rgba(255,255,255,0);
-  transition: background 200ms ease, height 0ms 200ms ease, width 0ms 200ms ease;
-
-  .logged-in & {
-    top: rem(32px);
+  height: rem(70px);
+  width: rem(70px);
+  transition: background 200ms ease-out, height 0ms 300ms ease-out, width 0ms 300ms ease-out;
+  .logged-in & { top: rem(48px); }
+  &.active {
+    height: 100vh;
+    width: 100vw;
+    transition: background 200ms ease-out, height 0ms ease-out, width 0ms ease-out;
+    background: #FF8076;
   }
-  .social {
+  &.active.out {
+    background: rgba(255,255,255,0);
+    transition: background 200ms ease-in;
+  }
+}
+
+.social {
+  &__wrapper {
+    position: absolute;
     opacity: 0;
-    animation: fade-in 1s 3.5s forwards ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    cursor: pointer;
+
+    top: -6%;
+    transform: perspective(600px) translateX(-12deg);
+  }
+  &__main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: row;
-    li a {
-      display: block;
-      svg {
-        height: 38px;
-        path { fill: rgba(255,255,255,1); }
-      }
+
+    svg {
+      height: 40px;
+      width: auto;
     }
+  }
+  .active &__wrapper {
+    opacity: 1;
+    top: 0%;
+    transform: perspective(600px) translateX(0deg);
+    transition: all 300ms ease-out;
+  }
+  .out &__wrapper {
+    opacity: 0 !important;
+    top: 6% !important;
+    transform: perspective(600px) translateX(12deg) !important;
+    transition: all 300ms ease-in;
   }
 }
 
 
-@media screen and (max-width: rem(784px)) {
-  .header {
-    position: fixed;
-    display: flex;
-    height: rem(70px);
-    width: rem(70px);
-    padding: 0px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    animation: none;
+.hamburger {
+  position: fixed;
+  display: none;
+  z-index: 200;
+  top: 0;
+  right: 0;
+  height: rem(70px);
+  width: rem(70px);
+  opacity: 1;
+  animation: fade-in 1s 3.5s forwards ease-out;
+  transform: rotateZ(0deg);
+  transition: all 160ms ease-out;
 
-    .logged-in & { top: rem(48px); }
-    .social {
-      opacity: 0;
-      animation: none;
-      transform: perspective(600px) rotateX(-10deg) scale(.95,.95);
-      transition: all 200ms linear;
-      li a svg {
-        transition: all 200ms ease;
-        height: 40px;
-        width: auto;
-      }
-    }
-
-    &.active {
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      background: rgba(217,40,130,.90);
-      transition: background 200ms ease;
-
-      .social {
-        opacity: 1;
-        transform: perspective(600px) rotateX(0deg);
-        transition: all 200ms linear;
-        li a svg {
-          transition: all 200ms ease;
-          height: 40px;
-          width: auto;
-        }
-      }
-      .hamburger {
-        transform: rotateZ(180deg);
-        transition: all 200ms ease-out;
-        span {
-          &:nth-child(1), &:nth-child(3) { opacity: 0; }
-          &:nth-child(2) {
-            background: rgba(255,255,255,0);
-            &::before {
-              opacity: 1;
-              transform: rotateZ(-45deg);
-            }
-            &::after {
-              opacity: 1;
-              transform: rotateZ(45deg);
-            }
-          }
-        }
+  span {
+    position: absolute;
+    display: block;
+    opacity: 1;
+    top: 0;
+    left: 23px;
+    height: 2px;
+    width: 24px;
+    background: rgba(255,255,255,.4);
+    transition: all 160ms ease-out;
+    &:nth-child(1){ top: 27px; }
+    &:nth-child(3){ top: 39px; }
+    &:nth-child(2){
+      top: 33px;
+      background: rgba(255,255,255,.4);
+      transition: background-color 160ms ease-out;
+      &::before, &::after {
+        transition: transform 160ms ease-out;
+        position: absolute;
+        content: "";
+        height: 2px;
+        width: 24px;
+        display: block;
+        background: rgba(255,255,255,0);
       }
     }
   }
-  .hamburger {
-    position: fixed;
-    display: block;
-    z-index: 200;
-    top: 0;
-    right: 0;
-    height: rem(70px);
-    width: rem(70px);
-    opacity: 0;
-    animation: fade-in 1s 3.5s forwards ease-out;
+  .active & {
     transform: rotateZ(0deg);
-    transition: all 200ms ease-out;
-
+    transition: all 160ms ease-out;
     span {
-      position: absolute;
-      display: block;
-      opacity: 1;
-      top: 0;
-      left: 23px;
-      height: 2px;
-      width: 24px;
-      background: white;
-      transition: all 200ms ease;
-      &:nth-child(1){ top: 27px; }
-      &:nth-child(3){ top: 39px; }
-      &:nth-child(2){
+      &:nth-child(1) {
+        opacity: 1;
         top: 33px;
-        background: rgba(255,255,255,1);
-        transition: background-color 160ms ease;
-        &::before, &::after {
-          transition: transform 160ms ease-in-out;
-          position: absolute;
-          content: "";
-          height: 2px;
-          width: 24px;
-          display: block;
-          background: white;
+        transform: rotateZ(135deg);
+      }
+      &:nth-child(3) {
+        opacity: 1;
+        top: 33px;
+        transform: rotateZ(45deg);
+      }
+      &:nth-child(2) {
+        background: rgba(255,255,255,0);
+        &::before {
+          opacity: 0;
+          transform: rotateZ(-45deg);
+        }
+        &::after {
+          opacity: 0;
+          transform: rotateZ(45deg);
         }
       }
     }

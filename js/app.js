@@ -421,21 +421,16 @@
       ripple.css({top: y, left: x}).addClass('animate');
     });
 
-    var classes = ["adapt", "parra"];
-    var mainScreen = document.querySelector(".main");
-    var body = document.getElementsByTagName("body");
-    mainScreen.addEventListener('click', function() {
-      for(var i = 0; i < classes.length; i++) {
-        if(body[0].classList.contains(classes[i])) {
-          body[0].classList.remove(classes[i]);
-          body[0].classList.add(i === classes.length - 1 ? classes[0] : classes[i+1]);
-          break;
-        }
-      }
-    }, false);
+    $('.main').on("click", function(){
+      $('.header').addClass("active");
+    });
 
-    $('.hamburger').on("click", function(){
-      $('.header').toggleClass("active");
+
+    $('.social__wrapper').on("click", function(){
+      $('.header').addClass("out");
+      setTimeout(function(){
+        $('.header').removeClass("out").removeClass("active");
+      }, 300);
     });
   });
 

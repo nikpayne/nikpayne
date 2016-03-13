@@ -9,12 +9,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  transition: opacity 200ms ease;
+  cursor: pointer;
 
   .container {
     max-width: rem(1170px);
     width: rem(992px);
     margin: 0 auto;
-    // user-select: none;
     #typed-strings {
       display: none;
     }
@@ -93,33 +95,36 @@
         background-color: transparent;
     }
 }
-
 @media screen and (max-width: rem(784px)) {
-  .main { .container { h1 { font-size: rem(36px); } } }
-}
-@media screen and (max-width: rem(600px)) {
-  .main {
-    .container {
-      h1 {
-        font-size: rem(24px);
-        display: none;
-      }
-      .cta {
-        display: none;
-      }
-    }
+  .main .container h1 {
+    font-size: rem(40px);
   }
 }
-@media screen and (max-width: rem(400px)) {
-  .main {
-    .container {
-      h1 {
-        font-size: rem(36px);
-        .dynamic {
-          display: block;
-          margin-bottom: -2.5rem;
-        }
-      }
+@media screen and (max-width: rem(700px)) {
+  .main .container h1 {
+    font-size: rem(36px);
+  }
+}
+@media screen and (max-width: rem(600px)) {
+  .main .container h1 {
+    font-size: rem(30px);
+  }
+}
+@media screen and (max-width: rem(500px)) {
+  .main .container h1 {
+    font-size: rem(26px);
+  }
+}
+@media screen and (max-width: rem(413px)) {
+  .main .container h1 {
+    font-size: rem(24px);
+  }
+}
+@media screen and (max-width: rem(374px)) {
+  .main .container h1 {
+    font-size: rem(20px);
+    .dynamic {
+      margin-bottom: -1.95rem;
     }
   }
 }
