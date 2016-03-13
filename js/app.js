@@ -1270,10 +1270,10 @@
       var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
       ripple.css({top: y, left: x}).addClass('animate');
     });
+
     $('.main').on("click", function(){
       $('.header').addClass("active");
     });
-
 
     $('.social__wrapper').on("click", function(){
       $('.header').addClass("out");

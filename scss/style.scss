@@ -26,8 +26,11 @@ html {
 }
 
 body {
+  position: relative;
+  text-size-adjust: none;
   padding: 0;
   margin:0;
+  height: inherit;
   font-family: "graphik", sans-serif;
 }
 

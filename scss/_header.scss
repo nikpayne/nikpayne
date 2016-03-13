@@ -1,15 +1,16 @@
 .header {
   position: fixed;
+  overflow: hidden;
   z-index: 200;
   top: 0;
   right: 0;
-  height: rem(70px);
-  width: rem(70px);
+  height: rem(20px);
+  width: rem(20px);
   transition: background 200ms ease-out, height 0ms 300ms ease-out, width 0ms 300ms ease-out;
   .logged-in & { top: rem(48px); }
   &.active {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     transition: background 200ms ease-out, height 0ms ease-out, width 0ms ease-out;
     background: #FF8076;
   }
@@ -21,30 +22,33 @@
 
 .social {
   &__wrapper {
+    display: none;
     position: absolute;
+    z-index: 300;
+    top: 0;
+    right: 0;
     opacity: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     flex-direction: column;
     cursor: pointer;
 
-    top: -6%;
-    transform: perspective(600px) translateX(-12deg);
+    top: -7%;
+    transform: perspective(400px) translateX(-30deg);
   }
   &__main {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
     list-style: none;
     padding: 0;
     margin: 0;
 
-    svg {
+    li a svg {
       height: 40px;
       width: auto;
     }
@@ -52,14 +56,14 @@
   .active &__wrapper {
     opacity: 1;
     top: 0%;
-    transform: perspective(600px) translateX(0deg);
-    transition: all 300ms ease-out;
+    transform: perspective(400px) translateX(0deg);
+    transition: all 400ms ease-out;
   }
   .out &__wrapper {
     opacity: 0 !important;
-    top: 6% !important;
-    transform: perspective(600px) translateX(12deg) !important;
-    transition: all 300ms ease-in;
+    top: 7% !important;
+    transform: perspective(400px) translateX(30deg) !important;
+    transition: all 400ms ease-in;
   }
 }
 
@@ -127,6 +131,32 @@
         &::after {
           opacity: 0;
           transform: rotateZ(45deg);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .social {
+    &__main {
+      li a {
+        svg {
+          height: 50px !important;
+          width: 50px;
+          &:hover {
+            path {
+              fill: #FFD600;
+              fill: #52F9D4;
+              fill: #FD939C;
+              fill: #FFF2AB;
+            }
+          }
+          &:active {
+            path {
+              fill: #007A87;
+            }
+          }
         }
       }
     }

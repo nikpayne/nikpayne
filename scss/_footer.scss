@@ -1,0 +1,15 @@
+.footer {
+  position: absolute;
+  z-index: 150;
+  height: 40px;
+  width: 40px;
+  bottom: 10px;
+  right: 8px;
+  svg {
+    max-height: 40px;
+    max-width: 40px;
+    path {
+      fill: #006B6D;
+    }
+  }
+}

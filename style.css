@@ -22,8 +22,13 @@ html {
   height: 100%; }
 
 body {
+  position: relative;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
   padding: 0;
   margin: 0;
+  height: inherit;
   font-family: "graphik", sans-serif; }
 
 @-webkit-keyframes fade-in {
@@ -52,17 +57,18 @@ body {
 
 .header {
   position: fixed;
+  overflow: hidden;
   z-index: 200;
   top: 0;
   right: 0;
-  height: 4.375rem;
-  width: 4.375rem;
+  height: 1.25rem;
+  width: 1.25rem;
   transition: background 200ms ease-out, height 0ms 300ms ease-out, width 0ms 300ms ease-out; }
   .logged-in .header {
     top: 3rem; }
   .header.active {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     transition: background 200ms ease-out, height 0ms ease-out, width 0ms ease-out;
     background: #FF8076; }
   .header.active.out {
@@ -70,7 +76,11 @@ body {
     transition: background 200ms ease-in; }
 
 .social__wrapper {
+  display: none;
   position: absolute;
+  z-index: 300;
+  top: 0;
+  right: 0;
   opacity: 0;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -81,15 +91,15 @@ body {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   cursor: pointer;
-  top: -6%;
-  -webkit-transform: perspective(600px) translateX(-12deg);
-  transform: perspective(600px) translateX(-12deg); }
+  top: -7%;
+  -webkit-transform: perspective(400px) translateX(-30deg);
+  transform: perspective(400px) translateX(-30deg); }
 
 .social__main {
   display: -webkit-flex;
@@ -107,23 +117,23 @@ body {
   list-style: none;
   padding: 0;
   margin: 0; }
-  .social__main svg {
+  .social__main li a svg {
     height: 40px;
     width: auto; }
 
 .active .social__wrapper {
   opacity: 1;
   top: 0%;
-  -webkit-transform: perspective(600px) translateX(0deg);
-  transform: perspective(600px) translateX(0deg);
-  transition: all 300ms ease-out; }
+  -webkit-transform: perspective(400px) translateX(0deg);
+  transform: perspective(400px) translateX(0deg);
+  transition: all 400ms ease-out; }
 
 .out .social__wrapper {
   opacity: 0 !important;
-  top: 6% !important;
-  -webkit-transform: perspective(600px) translateX(12deg) !important;
-  transform: perspective(600px) translateX(12deg) !important;
-  transition: all 300ms ease-in; }
+  top: 7% !important;
+  -webkit-transform: perspective(400px) translateX(30deg) !important;
+  transform: perspective(400px) translateX(30deg) !important;
+  transition: all 400ms ease-in; }
 
 .hamburger {
   position: fixed;
@@ -192,13 +202,25 @@ body {
         -webkit-transform: rotateZ(45deg);
         transform: rotateZ(45deg); }
 
+@media screen and (min-width: 500px) {
+  .social__main li a svg {
+    height: 50px !important;
+    width: 50px; }
+    .social__main li a svg:hover path {
+      fill: #FFD600;
+      fill: #52F9D4;
+      fill: #FD939C;
+      fill: #FFF2AB; }
+    .social__main li a svg:active path {
+      fill: #007A87; } }
+
 .main {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 90;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -215,8 +237,8 @@ body {
   transition: opacity 200ms ease;
   cursor: pointer; }
   .main .container {
-    max-width: 73.125rem;
-    width: 62rem;
+    width: 100%;
+    max-width: 68.75rem;
     margin: 0 auto; }
     .main .container #typed-strings {
       display: none; }
@@ -228,15 +250,15 @@ body {
       padding: 0 1rem;
       position: relative;
       opacity: 0;
-      -webkit-animation: fade-in 2s .5s forwards ease-out;
-      animation: fade-in 2s .5s forwards ease-out;
+      -webkit-animation: fade-in 2s .75s forwards ease-out;
+      animation: fade-in 2s .75s forwards ease-out;
       font-family: "Medium", sans-serif;
       color: #fff;
       font-size: 1.25rem;
       font-weight: 400;
       line-height: 1.3;
       z-index: 100; }
-      .main .container h1 span.element {
+      .main .container h1 span.element, .main .container h1 span.typed-cursor {
         font-weight: 500; }
 
 .typed-cursor {
@@ -309,9 +331,66 @@ body {
     transform: scale(10);
     background-color: transparent; } }
 
-@media screen and (min-width: 25rem) {
+@media screen and (min-width: 21.25rem) {
+  .main .container h1 {
+    font-size: 1.375rem; } }
+
+@media screen and (min-width: 23.125rem) {
   .main .container h1 {
     font-size: 1.5rem; } }
+
+@media screen and (min-width: 24.375rem) {
+  .main .container h1 {
+    font-size: 1.625rem; } }
+
+@media screen and (min-width: 26.25rem) {
+  .main .container h1 {
+    font-size: 1.75rem; } }
+
+@media screen and (min-width: 28.75rem) {
+  .main .container h1 {
+    font-size: 1.875rem; } }
+
+@media screen and (min-width: 31.25rem) {
+  .main .container h1 {
+    font-size: 2rem; } }
+
+@media screen and (min-width: 33.75rem) {
+  .main .container h1 {
+    font-size: 2.25rem; } }
+
+@media screen and (min-width: 36.25rem) {
+  .main .container h1 {
+    font-size: 2.375rem; } }
+
+@media screen and (min-width: 38.75rem) {
+  .main .container h1 {
+    font-size: 2.5rem; } }
+
+@media screen and (min-width: 41.25rem) {
+  .main .container h1 {
+    font-size: 2.625rem; } }
+
+@media screen and (min-width: 45rem) {
+  .main .container h1 {
+    font-size: 2.75rem; } }
+
+@media screen and (min-width: 50rem) {
+  .main .container h1 {
+    font-size: 3rem; } }
+
+.footer {
+  position: absolute;
+  z-index: 150;
+  height: 40px;
+  width: 40px;
+  bottom: 10px;
+  right: 8px; }
+  .footer svg {
+    max-height: 40px;
+    max-width: 40px; }
+    .footer svg path {
+      fill: #006B6D; }
 
 body.parra {
   background: #00888A;

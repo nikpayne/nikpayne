@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <body class="parra <?php if ( is_user_logged_in() ): echo "logged-in"; endif; ?>">
-  <header class="header active">
+  <header class="header">
     <nav class="hamburger">
       <span></span>
       <span></span>
