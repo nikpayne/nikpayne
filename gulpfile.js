@@ -29,7 +29,7 @@ gulp.task('watch', ['serve'], function() {
 gulp.task('default', ['serve'], function() {});
 
 gulp.task('zip', [], function() {
-  return gulp.src(['./img', './*.php', './*.css', './*.png', './fonts', './js', './partials'])
+  return gulp.src(['./**', '!./node_modules', '!./node_modules/**', '!./dist'])
     .pipe(gzip('nikpayne.zip'))
     .pipe(gulp.dest('dist'));
 });

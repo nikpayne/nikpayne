@@ -17,6 +17,25 @@ sketch:type=(["'])(?:(?=(\\?))\2.)*?\1
 @function rem($size) { @return #{$size / 16px;}rem; }
 @function letterspacing($kerning, $pixelHeight) { $rem: $pixelHeight/16; $size: $kerning/1000; @return #{$rem*$size}rem; }
 
+@font-face {
+  font-family: 'medium';
+  src:  url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.eot') format('embedded-opentype'),
+        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.woff') format('woff'),
+        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.ttf')  format('truetype'),
+        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.svg') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'medium';
+  src:  url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.eot') format('embedded-opentype'),
+        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.woff') format('woff'),
+        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.ttf')  format('truetype'),
+        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.svg') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
 * { box-sizing: border-box; }
 
 html {
@@ -28,10 +47,11 @@ html {
 body {
   position: relative;
   text-size-adjust: none;
+  -webkit-font-smoothing: subpixel-antialiased;
   padding: 0;
   margin:0;
   height: inherit;
-  font-family: "graphik", sans-serif;
+  font-family: "medium", sans-serif;
 }
 
 $parra_main: #008689;
@@ -47,25 +67,6 @@ $spotify_accent: #52F9D4;
 @keyframes fade-in{
   0% { opacity: 0; }
   100% { opacity: 1; }
-}
-
-@font-face {
-  font-family: 'Medium';
-  src:  url('./fonts/Medium-Regular.eot') format('embedded-opentype'),
-        url('./fonts/Medium-Regular.woff') format('woff'),
-        url('./fonts/Medium-Regular.ttf')  format('truetype'),
-        url('./fonts/Medium-Regular.svg') format('svg');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Medium';
-  src:  url('./fonts/Medium-Medium.eot') format('embedded-opentype'),
-        url('./fonts/Medium-Medium.woff') format('woff'),
-        url('./fonts/Medium-Medium.ttf')  format('truetype'),
-        url('./fonts/Medium-Medium.svg') format('svg');
-  font-weight: 500;
-  font-style: normal;
 }
 
 @import "header";
