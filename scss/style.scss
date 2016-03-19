@@ -17,24 +17,44 @@ sketch:type=(["'])(?:(?=(\\?))\2.)*?\1
 @function rem($size) { @return #{$size / 16px;}rem; }
 @function letterspacing($kerning, $pixelHeight) { $rem: $pixelHeight/16; $size: $kerning/1000; @return #{$rem*$size}rem; }
 
+// @font-face {
+//   font-family: 'medium';
+//   src:  url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.eot') format('embedded-opentype'),
+//         url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.woff') format('woff'),
+//         url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.ttf')  format('truetype'),
+//         url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.svg') format('svg');
+//   font-weight: 400;
+//   font-style: normal;
+// }
+// @font-face {
+//   font-family: 'medium';
+//   src:  url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.eot') format('embedded-opentype'),
+//         url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.woff') format('woff'),
+//         url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.ttf')  format('truetype'),
+//         url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.svg') format('svg');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+
 @font-face {
   font-family: 'medium';
-  src:  url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.eot') format('embedded-opentype'),
-        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.woff') format('woff'),
-        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.ttf')  format('truetype'),
-        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Regular.svg') format('svg');
+  src:  url('/fonts/Medium-Regular.eot') format('embedded-opentype'),
+        url('/fonts/Medium-Regular.woff') format('woff'),
+        url('/fonts/Medium-Regular.ttf')  format('truetype'),
+        url('/fonts/Medium-Regular.svg') format('svg');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'medium';
-  src:  url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.eot') format('embedded-opentype'),
-        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.woff') format('woff'),
-        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.ttf')  format('truetype'),
-        url('http://nikpayne.com/wp-content/themes/nikpayne/fonts/Medium-Medium.svg') format('svg');
+  src:  url('fonts/Medium-Medium.eot') format('embedded-opentype'),
+        url('fonts/Medium-Medium.woff') format('woff'),
+        url('fonts/Medium-Medium.ttf')  format('truetype'),
+        url('fonts/Medium-Medium.svg') format('svg');
   font-weight: 500;
   font-style: normal;
 }
+
 
 * { box-sizing: border-box; }
 
