@@ -44,18 +44,6 @@ body {
   height: inherit;
   font-family: "medium", sans-serif; }
 
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes fade-in {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
 .header {
   position: fixed;
   overflow: hidden;
@@ -224,32 +212,29 @@ body {
       transform: rotateZ(360deg);
       transition: all 200ms ease; } }
 
-@-webkit-keyframes spinny {
-  from {
-    -webkit-transform: rotateZ(0deg);
-    transform: rotateZ(0deg); }
-  to {
-    -webkit-transform: rotateZ(3600deg);
-    transform: rotateZ(3600deg); } }
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
-@keyframes spinny {
-  from {
-    -webkit-transform: rotateZ(0deg);
-    transform: rotateZ(0deg); }
-  to {
-    -webkit-transform: rotateZ(3600deg);
-    transform: rotateZ(3600deg); } }
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
-#globe svg {
-  -webkit-animation: spinny 100s linear;
-  animation: spinny 100s linear; }
+@-webkit-keyframes slideUp {
+  0% {
+    top: 1rem; }
+  100% {
+    top: 0; } }
 
-#globe svg {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  right: 10%; }
+@keyframes slideUp {
+  0% {
+    top: 1rem; }
+  100% {
+    top: 0; } }
 
 .main {
   position: absolute;
@@ -271,8 +256,7 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 200ms ease;
-  cursor: pointer; }
+  transition: opacity 200ms ease; }
   .main .container {
     width: 100%;
     max-width: 68.75rem;
@@ -286,9 +270,10 @@ body {
       user-select: none;
       padding: 0 1rem;
       position: relative;
+      top: 1rem;
       opacity: 0;
-      -webkit-animation: fade-in 2s .75s forwards ease-out;
-      animation: fade-in 2s .75s forwards ease-out;
+      -webkit-animation: fadeIn 2s .75s forwards ease-out, slideUp .6s .75s forwards ease-out;
+      animation: fadeIn 2s .75s forwards ease-out, slideUp .6s .75s forwards ease-out;
       font-family: "medium", sans-serif;
       color: #fff;
       font-size: 1.25rem;
@@ -362,8 +347,8 @@ body {
   z-index: 1; }
 
 .animate {
-  -webkit-animation: ripple .45s linear;
-  animation: ripple .45s linear; }
+  -webkit-animation: ripple .15s linear;
+  animation: ripple .15s linear; }
 
 @-webkit-keyframes ripple {
   100% {
@@ -426,18 +411,31 @@ body {
     font-size: 3rem; } }
 
 .footer {
+  opacity: 0;
+  padding: 0;
+  margin: 0;
   position: absolute;
+  height: 3.125rem;
   z-index: 150;
-  height: 40px;
-  width: 40px;
-  bottom: 10px;
-  right: 8px; }
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: all 300ms ease;
+  -webkit-animation: fadeIn 2s 2s forwards ease-out;
+  animation: fadeIn 2s 2s forwards ease-out; }
+  .footer.active {
+    opacity: 0;
+    transition: all 100ms ease; }
   .footer svg {
-    max-height: 40px;
-    max-width: 40px; }
-    .footer svg path {
-      fill: #006B6D;
-      fill: white; }
+    height: 3.125rem;
+    max-width: 3.125rem;
+    max-height: 3.125rem;
+    transition: all 300ms ease; }
+
+@media screen and (min-width: 62.5rem) {
+  .footer {
+    bottom: 1.875rem;
+    right: 1.875rem; } }
 
 body.parra {
   background: #00888A;

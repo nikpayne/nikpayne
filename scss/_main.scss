@@ -1,19 +1,19 @@
-@keyframes spinny {
-  from {
-    transform: rotateZ(0deg);
+@keyframes fadeIn{
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotateZ(3600deg);
+  100% {
+    opacity: 1;
   }
 }
-#globe svg {
-  animation: spinny 100s linear;
-}
-#globe svg {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 10%;
+
+@keyframes slideUp {
+  0% {
+    top: 1rem;
+  }
+  100% {
+    top: 0;
+  }
 }
 
 .main {
@@ -29,7 +29,6 @@
   justify-content: center;
   overflow: hidden;
   transition: opacity 200ms ease;
-  cursor: pointer;
 
   .container {
     width: 100%;
@@ -42,8 +41,9 @@
       user-select: none;
       padding: 0 1rem;
       position: relative;
+      top: 1rem;
       opacity: 0;
-      animation: fade-in 2s .75s forwards ease-out;
+      animation: fadeIn 2s .75s forwards ease-out, slideUp .6s .75s forwards ease-out;
       font-family: "medium", sans-serif;
       color: #fff;
       font-size: rem(20px);
@@ -95,8 +95,8 @@
 }
 
 .animate {
-    -webkit-animation: ripple .45s linear;
-            animation: ripple .45s linear;
+    -webkit-animation: ripple .15s linear;
+            animation: ripple .15s linear;
 }
 @keyframes ripple {
     100% {

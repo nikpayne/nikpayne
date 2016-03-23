@@ -84,11 +84,6 @@ $adapt_accent: #f79800;
 $spotify_main: #F3768C;
 $spotify_accent: #52F9D4;
 
-@keyframes fade-in{
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 @import "header";
 @import "main";
 @import "footer";
