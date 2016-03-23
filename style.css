@@ -224,6 +224,33 @@ body {
       transform: rotateZ(360deg);
       transition: all 200ms ease; } }
 
+@-webkit-keyframes spinny {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg); }
+  to {
+    -webkit-transform: rotateZ(3600deg);
+    transform: rotateZ(3600deg); } }
+
+@keyframes spinny {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg); }
+  to {
+    -webkit-transform: rotateZ(3600deg);
+    transform: rotateZ(3600deg); } }
+
+#globe svg {
+  -webkit-animation: spinny 100s linear;
+  animation: spinny 100s linear; }
+
+#globe svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 10%; }
+
 .main {
   position: absolute;
   top: 0;
