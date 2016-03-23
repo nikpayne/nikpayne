@@ -6,11 +6,11 @@
   right: 0;
   height: rem(20px);
   width: rem(20px);
-  transition: background 200ms ease-out, height 0ms 300ms ease-out, width 0ms 300ms ease-out;
+  transition: background 200ms ease-out, height 0ms 400ms ease-out, width 0ms 400ms ease-out;
   &.active {
     height: 100%;
     width: 100%;
-    transition: background 200ms ease-out, height 0ms ease-out, width 0ms ease-out;
+    transition: background 200ms 5ms ease-out, height 0ms ease-out, width 0ms ease-out;
     background: #FF8076;
   }
   &.active.out {

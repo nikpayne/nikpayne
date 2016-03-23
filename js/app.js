@@ -1263,53 +1263,35 @@
 			loop: false
 		});
 		//Ripple Effect
-		$('.footer').on('click', function (e) {
-			var ripple = $(this).find('.ripple');
-			ripple.removeClass('animate');
-			var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);
-			var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
-			ripple.css({top: y, left: x}).addClass('animate');
-		});
-
-		$('.footer').on("click", function(){
-			$('.header').toggleClass('active');
-		});
-
-		// var cancel = false;
-		// $('.social__wrapper').on("click", function(e){
-		// 	if (e.target === this){
-		// 		cancel=false;
-		// 		if($('.header').hasClass('out')){
-		// 			cancel = true;
-		// 			$('.header').removeClass('out').removeClass("active");
-		// 		} else {
-		// 			$('.header').addClass("out");
-		// 			setTimeout(function(){
-		// 				if(!cancel)
-		// 					$('.header').removeClass("out").removeClass("active");
-		// 			}, 300);
-		// 		}
-		// 	}
+		// $('.footer').on('click', function (e) {
+		// 	var ripple = $('body').find('.ripple');
+		// 	ripple.removeClass('animate');
+		// 	var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);
+		// 	var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
+		// 	ripple.css({top: y, left: x}).addClass('animate');
 		// });
-		$('.social__wrapper').on("click", function(e){
-			if($('.header').hasClass("active") && $('.header').hasClass("out")){
-				$('.header').removeClass("out").removeClass("active");
-				$('.header').addClass('active');
-			} else if($('.header').hasClass("active")){
-				$('.header').addClass("out");
-			}else {
-				$('.header').addClass("active");
+
+		var header = $('.header'),
+				timer;
+		function toggleHeader(){
+			if(header.hasClass("active") && !header.hasClass("out")){
+				header.addClass("out");
+				timer = setTimeout(function(){
+					header.removeClass("active").removeClass("out");
+				}, 300);
+			} else if (header.hasClass("out")){
+				clearTimeout(timer);
+				header.removeClass("out");
+			} else {
+				header.addClass("active");
 			}
+		}
+
+		$('.social__wrapper').on("click", function(e){
+			toggleHeader();
 		});
 		$('.footer').on("click", function(e){
-			if($('.header').hasClass("active") && $('.header').hasClass("out")){
-				$('.header').removeClass("out").removeClass("active");
-				$('.header').addClass('active');
-			} else if($('.header').hasClass("active")){
-				$('.header').addClass("out");
-			}else {
-				$('.header').addClass("active");
-			}
+			toggleHeader();
 		});
 
 
