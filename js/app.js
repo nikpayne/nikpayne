@@ -1287,13 +1287,36 @@
 			}
 		}
 
-		$('.social__wrapper').on("click", function(e){
-			toggleHeader();
+		$(document).on('touchstart click', '.social__wrapper', function(event){
+			event.stopPropagation();
+			event.preventDefault();
+			if(event.handled !== true) {
+				if(event.target.className != "social__wrapper")
+					toggleHeader();
+				else
+					console.log(event.target);
+				event.handled = true;
+			} else {
+				return false;
+			}
 		});
-		$('.footer').on("click", function(e){
-			toggleHeader();
+		$(document).on('touchstart click', '.footer', function(event){
+			event.stopPropagation();
+			event.preventDefault();
+			if(event.handled !== true) {
+				toggleHeader();
+				event.handled = true;
+			} else {
+				return false;
+			}
 		});
 
+		// $('.social__wrapper').on("click", function(e){
+		// 	toggleHeader();
+		// });
+		// $('.footer').on("click", function(e){
+		// 	toggleHeader();
+		// });
 
   });
 
