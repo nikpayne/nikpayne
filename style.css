@@ -347,8 +347,8 @@ body {
   z-index: 1; }
 
 .animate {
-  -webkit-animation: ripple .15s linear;
-  animation: ripple .15s linear; }
+  -webkit-animation: ripple .25s linear;
+  animation: ripple .25s linear; }
 
 @-webkit-keyframes ripple {
   100% {
