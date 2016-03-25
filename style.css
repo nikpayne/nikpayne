@@ -256,7 +256,8 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 200ms ease; }
+  transition: opacity 200ms ease;
+  cursor: pointer; }
   .main .container {
     width: 100%;
     max-width: 68.75rem;
@@ -296,22 +297,6 @@ body {
   opacity: 1;
   -webkit-animation: blink 1s infinite;
   animation: blink 1s infinite; }
-
-@-webkit-keyframes color-pulse {
-  0% {
-    color: #FF8076; }
-  50% {
-    color: #FF7368; }
-  100% {
-    color: #FF8076; } }
-
-@keyframes color-pulse {
-  0% {
-    color: #FF8076; }
-  50% {
-    color: #FF7368; }
-  100% {
-    color: #FF8076; } }
 
 @-webkit-keyframes blink {
   0% {
@@ -447,10 +432,10 @@ body {
     right: 1.875rem; } }
 
 body.parra {
-  background: #00888A;
-  background: linear-gradient(to bottom, #00888A 0%, #008689 100%);
   background: #007A87;
   background: linear-gradient(to bottom, #007A87 0%, #008687 100%); }
+  body.parra .header.active {
+    background: #FF8076; }
   body.parra .social a:hover svg path {
     fill: #FF8076; }
   body.parra .typed-cursor {
@@ -459,18 +444,14 @@ body.parra {
     background-color: #FF8076; }
   body.parra .header.active .hamburger span:nth-child(1), body.parra .header.active .hamburger span:nth-child(3) {
     background-color: white; }
-  body.parra .social a:hover svg path {
+  body.parra .footer svg:nth-child(1) path {
     fill: #FF8076; }
-  body.parra .typed-cursor {
-    color: #FF8076; }
-  body.parra .ripple {
-    background-color: #FF8076; }
-  body.parra .header.active .hamburger span:nth-child(1), body.parra .header.active .hamburger span:nth-child(3) {
-    background-color: white; }
 
 body.adapt {
   background: #4E47EA;
   background: linear-gradient(to bottom, #4E47EA 0%, #4D45E7 100%); }
+  body.adapt .header.active {
+    background: #f79800; }
   body.adapt .social a:hover svg path {
     fill: #f79800; }
   body.adapt .typed-cursor {
@@ -479,3 +460,69 @@ body.adapt {
     background-color: #f79800; }
   body.adapt .header.active .hamburger span:nth-child(1), body.adapt .header.active .hamburger span:nth-child(3) {
     background-color: white; }
+  body.adapt .footer svg:nth-child(1) path {
+    fill: #f79800; }
+
+body.vibe {
+  background: #01B894;
+  background: linear-gradient(to bottom, #01B894 0%, #01C692 100%); }
+  body.vibe .header.active {
+    background: #E62953; }
+  body.vibe .social a:hover svg path {
+    fill: #E62953; }
+  body.vibe .typed-cursor {
+    color: #E62953; }
+  body.vibe .ripple {
+    background-color: #E62953; }
+  body.vibe .header.active .hamburger span:nth-child(1), body.vibe .header.active .hamburger span:nth-child(3) {
+    background-color: white; }
+  body.vibe .footer svg:nth-child(1) path {
+    fill: #E62953; }
+
+body.deep {
+  background: #9013FE;
+  background: linear-gradient(to bottom, #9013FE 0%, #9813FE 100%); }
+  body.deep .header.active {
+    background: #5FE8C6; }
+  body.deep .social a:hover svg path {
+    fill: #5FE8C6; }
+  body.deep .typed-cursor {
+    color: #5FE8C6; }
+  body.deep .ripple {
+    background-color: #5FE8C6; }
+  body.deep .header.active .hamburger span:nth-child(1), body.deep .header.active .hamburger span:nth-child(3) {
+    background-color: white; }
+  body.deep .footer svg:nth-child(1) path {
+    fill: #5FE8C6; }
+
+body.zest {
+  background: #E77868;
+  background: linear-gradient(to bottom, #E77868 0%, #F07855 100%); }
+  body.zest .header.active {
+    background: #125062; }
+  body.zest .social a:hover svg path {
+    fill: #125062; }
+  body.zest .typed-cursor {
+    color: #125062; }
+  body.zest .ripple {
+    background-color: #125062; }
+  body.zest .header.active .hamburger span:nth-child(1), body.zest .header.active .hamburger span:nth-child(3) {
+    background-color: white; }
+  body.zest .footer svg:nth-child(1) path {
+    fill: #125062; }
+
+body.concert {
+  background: #54515C;
+  background: linear-gradient(to bottom, #54515C 0%, #9A515C 100%); }
+  body.concert .header.active {
+    background: #EC5B62; }
+  body.concert .social a:hover svg path {
+    fill: #EC5B62; }
+  body.concert .typed-cursor {
+    color: #EC5B62; }
+  body.concert .ripple {
+    background-color: #EC5B62; }
+  body.concert .header.active .hamburger span:nth-child(1), body.concert .header.active .hamburger span:nth-child(3) {
+    background-color: white; }
+  body.concert .footer svg:nth-child(1) path {
+    fill: #EC5B62; }

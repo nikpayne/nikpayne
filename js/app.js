@@ -420,7 +420,25 @@
 			typeSpeed: 70,
 			loop: false
 		});
+		function loopClasses(){
+			var classes = ["parra", "adapt", "vibe", "deep", "zest"];
+			classes = ["parra", "zest", "concert"];
+			for(var i = 0; i < classes.length; i++){
+				if($('body').hasClass(classes[i])){
+					if(i != classes.length - 1) {
+						$('body').removeClass(classes[i]);
+						$('body').addClass(classes[i + 1]);
+					}else {
+						$('body').removeClass(classes[i]);
+						$('body').addClass(classes[0]);
+					}
+					break;
+				}
+			}
+		}
+
 		$('.main').on('click', function (e) {
+			loopClasses();
 			var ripple = $('.main').find('.ripple');
 			ripple.removeClass('animate');
 			var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);

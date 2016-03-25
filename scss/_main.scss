@@ -29,6 +29,7 @@
   justify-content: center;
   overflow: hidden;
   transition: opacity 200ms ease;
+  cursor: pointer;
 
   .container {
     width: 100%;
@@ -68,12 +69,6 @@
 .typed-cursor{
   opacity: 1;
   animation: blink 1s infinite;
-}
-
-@keyframes color-pulse{
-  0% { color: $parra_accent; }
-  50% { color: $parra_super-accent; }
-  100% { color: $parra_accent; }
 }
 
 @keyframes blink{

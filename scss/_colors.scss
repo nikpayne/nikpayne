@@ -1,18 +1,37 @@
 @mixin color-scheme($from, $to, $accent-from, $accent-to){
   background: $from;
-  background: linear-gradient(to bottom, $from 0%, $to 100%);;
+  background: linear-gradient(to bottom, $from 0%, $to 100%);
+  .header.active {
+    background: $accent-from;
+  }
   .social a:hover svg path { fill: $accent-from; }
   .typed-cursor { color: $accent-from; }
   .ripple { background-color: $accent-from; }
   .header.active .hamburger span:nth-child(1), .header.active .hamburger span:nth-child(3) { background-color: white; }
+  .footer svg:nth-child(1){
+    path {
+      fill: $accent-from;
+    }
+  }
 }
 
 body {
   &.parra {
-    @include color-scheme(#00888A, #008689, $parra_accent, $adapt_accent);
-    @include color-scheme(#007A87, #008687, $parra_accent, $adapt_accent);
+    @include color-scheme($parra_from, $parra_to, $parra_accent, $adapt_accent);
   }
   &.adapt {
-    @include color-scheme(#4E47EA, #4D45E7, $adapt_accent, $parra_accent);
+    @include color-scheme($adapt_from, $adapt_to, $adapt_accent, $vibe_accent);
+  }
+  &.vibe {
+    @include color-scheme($vibe_from, $vibe_to, $vibe_accent, $deep_accent);
+  }
+  &.deep {
+    @include color-scheme($deep_from, $deep_to, $deep_accent, $zest_accent);
+  }
+  &.zest {
+    @include color-scheme($zest_from, $zest_to, $zest_accent, $concert_accent);
+  }
+  &.concert {
+    @include color-scheme($concert_from, $concert_to, $concert_accent, $parra_accent);
   }
 }
