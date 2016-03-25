@@ -422,7 +422,7 @@
 		});
 		function loopClasses(){
 			var classes = ["parra", "adapt", "vibe", "deep", "zest"];
-			classes = ["parra", "zest", "concert"];
+			classes = ["parra", "zest"];
 			for(var i = 0; i < classes.length; i++){
 				if($('body').hasClass(classes[i])){
 					if(i != classes.length - 1) {
