@@ -453,7 +453,7 @@
 				header.addClass("out");
 				timer = setTimeout(function(){
 					header.removeClass("active").removeClass("out");
-				}, 300);
+				}, 400);
 			} else if (header.hasClass("out")){
 				clearTimeout(timer);
 				header.removeClass("out");

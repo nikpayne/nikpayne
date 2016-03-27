@@ -6,16 +6,16 @@
   right: 0;
   height: rem(20px);
   width: rem(20px);
-  transition: background 200ms ease-out, height 0ms 400ms ease-out, width 0ms 400ms ease-out;
+  transition: background 300ms ease-out, height 0ms 400ms ease-out, width 0ms 400ms ease-out;
   &.active {
     height: 100%;
     width: 100%;
-    transition: background 200ms 5ms ease-out, height 0ms ease-out, width 0ms ease-out;
+    transition: background 300ms 5ms ease-out, height 0ms ease-out, width 0ms ease-out;
     background: #FF8076;
   }
   &.active.out {
     background: rgba(255,255,255,0);
-    transition: background 200ms ease-in;
+    transition: background 400ms ease-in;
   }
 }
 
@@ -36,7 +36,10 @@
     cursor: pointer;
 
     top: -7%;
-    transform: perspective(200px) translateX(-30deg);
+    transition: all 200ms ease;
+    .social__main {
+      transform: perspective(200px) rotateX(6deg);
+    }
   }
   &__main {
     display: flex;
@@ -55,14 +58,20 @@
   .active &__wrapper {
     opacity: 1;
     top: 0%;
-    transform: perspective(200px) translateX(0deg);
     transition: all 400ms ease-out;
+    .social__main {
+      transform: perspective(200px) rotateX(0deg);
+      transition: all 400ms ease-out;
+    }
   }
   .out &__wrapper {
-    opacity: 0 !important;
-    top: 7% !important;
-    transform: perspective(200px) translateX(30deg) !important;
+    opacity: 0;
+    top: 7%;
     transition: all 400ms ease-in;
+    .social__main {
+      transform: perspective(200px) rotateX(-6deg);
+      transition: all 400ms ease-in;
+    }
   }
 }
 
@@ -143,8 +152,8 @@
       transition: all 200ms ease;
       li a {
         svg {
-          height: 50px !important;
-          width: 50px;
+          height: 60px;
+          width: 60px;
           &:visited {
             path {
               fill: black;
@@ -171,6 +180,30 @@
         transform: rotateZ(360deg);
         transition: all 200ms ease;
       }
+    }
+  }
+}
+@media screen and (min-width: 700px) {
+  .social {
+    &__main li a svg {
+      height: 70px !important;
+      width: 70px;
+    }
+  }
+}
+@media screen and (min-width: 900px) {
+  .social {
+    &__main li a svg {
+      height: 90px !important;
+      width: 90px;
+    }
+  }
+}
+@media screen and (min-width: 1000px) {
+  .social {
+    &__main li a svg {
+      height: 100px !important;
+      width: 100px;
     }
   }
 }

@@ -4,6 +4,9 @@
   .header.active {
     background: $accent-from;
   }
+  .header.out {
+    background: rgba(255,255,255,0);
+  }
   .social a:hover svg path { fill: $accent-from; }
   .typed-cursor { color: $accent-from; }
   .ripple { background-color: $accent-from; }
