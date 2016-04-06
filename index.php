@@ -102,6 +102,44 @@
     </section>
     <div class="ripple"></div>
   </main>
-<?php get_footer(); ?>
+
+  <?php get_footer(); ?>
+
+  <section class="portfolio">
+    <div class="row">
+      <div id="portfolio" class="portfolio-area clearfix">
+        <script id="portfolio-template" type="text/x-handlebars-template">
+          <ul class="portfolio-list clearfix">
+            {{#each projects}}
+            <li class="portfolio-item">
+              <div class="portfolio-content">
+                  <figure class="portfolio-cover" title="{{this.name}}">
+                      {{#if this.covers.[404]}}
+                      <img class="portfolio-image" src="{{this.covers.[404]}}" alt="">
+                      {{else}}
+                          {{#if this.covers.[230]}}
+                          <img class="portfolio-image" src="{{this.covers.[230]}}" alt="">
+                          {{else}}
+                          <img class="portfolio-image" src="{{this.covers.[202]}}" alt="">
+                          {{/if}}
+                      {{/if}}
+                  </figure>
+                  <h2 class="portfolio-title">{{this.name}}</h2>
+                  <div class="portfolio-fields">
+                      <ul class="field-list">
+                      {{#each this.fields}}
+                          <li class="field-item">{{this}}</li>
+                      {{/each}}
+                      </ul>
+                  </div>
+              </div> 
+            </li>
+            {{/each}}
+          </ul>
+        </script>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>

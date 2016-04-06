@@ -21,7 +21,7 @@
   background: parra_accent;
   cursor: pointer;
   transition: all 300ms ease;
-  animation: fadeIn 400ms 2s forwards ease-out, popup 400ms 2s forwards cubic-bezier(.64,1.73,.66,.89);
+  animation: fadeIn 400ms 3.5s forwards ease-out, popup 400ms 3.5s forwards cubic-bezier(.64,1.73,.66,.89);
 
   &.active {
     opacity: 0;
