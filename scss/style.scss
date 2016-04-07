@@ -54,6 +54,13 @@ sketch:type=(["'])(?:(?=(\\?))\2.)*?\1
   font-weight: 500;
   font-style: normal;
 }
+@font-face {
+  font-family: 'ico-moon';
+  src:  url('fonts/Ico-Moon.woff') format('woff'),
+        url('fonts/Ico-Moon.ttf')  format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
 
 
 * {

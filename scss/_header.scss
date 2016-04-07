@@ -184,26 +184,36 @@
   }
 }
 @media screen and (min-width: 700px) {
+  .header {
+    height: 100vh !important;
+    width: 100vw !important;
+  }
   .social {
+    &__wrapper {
+      display: block;
+      opacity: 1;
+      height: 100vh;
+      width: 100vw;
+    }
     &__main li a svg {
-      height: 70px !important;
-      width: 70px;
+      height: 20px !important;
+      width: 20px;
     }
   }
 }
 @media screen and (min-width: 900px) {
   .social {
-    &__main li a svg {
-      height: 90px !important;
-      width: 90px;
-    }
+    // &__main li a svg {
+    //   height: 90px !important;
+    //   width: 90px;
+    // }
   }
 }
 @media screen and (min-width: 1000px) {
   .social {
-    &__main li a svg {
-      height: 100px !important;
-      width: 100px;
-    }
+    // &__main li a svg {
+    //   height: 100px !important;
+    //   width: 100px;
+    // }
   }
 }

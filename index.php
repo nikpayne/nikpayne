@@ -106,33 +106,42 @@
   <?php get_footer(); ?>
 
   <section class="portfolio">
-    <div class="row">
-      <div id="portfolio" class="portfolio-area clearfix">
+    <div class="portfolio__row">
+      <div id="portfolio" class="portfolio__main">
         <script id="portfolio-template" type="text/x-handlebars-template">
-          <ul class="portfolio-list clearfix">
+          <ul class="portfolio__list">
             {{#each projects}}
-            <li class="portfolio-item">
-              <div class="portfolio-content">
-                  <figure class="portfolio-cover" title="{{this.name}}">
-                      {{#if this.covers.[404]}}
-                      <img class="portfolio-image" src="{{this.covers.[404]}}" alt="">
-                      {{else}}
-                          {{#if this.covers.[230]}}
-                          <img class="portfolio-image" src="{{this.covers.[230]}}" alt="">
-                          {{else}}
-                          <img class="portfolio-image" src="{{this.covers.[202]}}" alt="">
-                          {{/if}}
-                      {{/if}}
-                  </figure>
-                  <h2 class="portfolio-title">{{this.name}}</h2>
-                  <div class="portfolio-fields">
-                      <ul class="field-list">
-                      {{#each this.fields}}
-                          <li class="field-item">{{this}}</li>
-                      {{/each}}
-                      </ul>
-                  </div>
-              </div> 
+            <li class="portfolio__item">
+              <a class="portfolio__cover-link" href="{{this.url}}" target="_blank" alt="{{this.name}}">
+                <figure class="portfolio__cover" title="{{this.name}}">
+                  {{#if this.covers.[404]}}
+                  <img class="portfolio__cover-image" src="{{this.covers.[404]}}" alt="">
+                  {{else}}
+                  {{#if this.covers.[230]}}
+                  <img class="portfolio__cover-image" src="{{this.covers.[230]}}" alt="">
+                  {{else}}
+                  <img class="portfolio__cover-image" src="{{this.covers.[202]}}" alt="">
+                  {{/if}}
+                  {{/if}}
+                </figure>
+              </a>
+              <article class="portfolio__content">
+                <a href="{{this.url}}"  target="_blank" alt="{{this.name}}">
+                  <h2 class="portfolio__title">{{this.name}}</h2>
+                </a>
+                <hr>
+                <div class="portfolio__field">
+                  <ul class="portfolio__field-list">
+                    {{#each this.fields}}
+                    <li class="portfolio__field-item">{{this}}</li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </article>
+              <footer class="portfolio__footer">
+                <span class="portfolio__footer-likes">{{this.stats.[appreciations]}}</span>
+                <span class="portfolio__footer-views">{{this.stats.[views]}}</span>
+              </footer>
             </li>
             {{/each}}
           </ul>
