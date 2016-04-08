@@ -72,6 +72,7 @@ html {
   font-size: 16px;
   width: 100%;
   height: 100%;
+  background: #187989;
 }
 
 body {
@@ -110,8 +111,8 @@ $concert_accent: #EC5B62;
 $spotify_main: #F3768C;
 $spotify_accent: #52F9D4;
 
+@import "footer";
 @import "header";
 @import "main";
-@import "footer";
 @import "portfolio";
 @import "colors";

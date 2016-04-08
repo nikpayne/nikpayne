@@ -40,8 +40,10 @@
     animation: appear 2s forwards;
   }
   &__content {
+    min-height: 105px;
     padding: 6px 10px 28px 10px;
     animation: appear 1s forwards;
+
   }
   &__cover {
     display: block;
@@ -95,6 +97,9 @@
     }
     &-item {
       display: inline-block;
+      &:not(:last-child)::after {
+        content: ",";
+      }
     }
   }
   &__footer {

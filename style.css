@@ -38,7 +38,8 @@ sketch:type=(["'])(?:(?=(\\?))\2.)*?\1
 html {
   font-size: 16px;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background: #187989; }
 
 body {
   position: relative;
@@ -49,6 +50,90 @@ body {
   margin: 0;
   height: inherit;
   font-family: "medium", sans-serif; }
+
+@-webkit-keyframes popup {
+  0% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); } }
+
+@keyframes popup {
+  0% {
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); }
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); } }
+
+.footer {
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  height: 3.125rem;
+  width: 3.125rem;
+  z-index: 150;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 1.5625rem;
+  background: parra_accent;
+  cursor: pointer;
+  transition: all 300ms ease;
+  -webkit-animation: fadeIn 400ms 3.5s forwards ease-out, popup 400ms 3.5s forwards cubic-bezier(0.64, 1.73, 0.66, 0.89);
+  animation: fadeIn 400ms 3.5s forwards ease-out, popup 400ms 3.5s forwards cubic-bezier(0.64, 1.73, 0.66, 0.89); }
+  .footer.active {
+    opacity: 0;
+    transition: all 100ms ease; }
+  .footer svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 3.125rem;
+    max-width: 3.125rem;
+    max-height: 3.125rem;
+    transition: all 400ms ease; }
+  .header.active:not(.out) + .main + .footer svg:nth-child(1) {
+    -webkit-transform: scale(1.25, 1.25);
+    transform: scale(1.25, 1.25); }
+
+@media screen and (min-width: 700px) {
+  .footer {
+    display: none; } }
+
+@media screen and (min-width: 62.5rem) {
+  .footer {
+    bottom: 1.875rem;
+    right: 1.875rem; } }
+
+@-webkit-keyframes grow {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); }
+  83% {
+    opacity: 1;
+    -webkit-transform: scale(1.14, 1.14);
+    transform: scale(1.14, 1.14); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); } }
+
+@keyframes grow {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); }
+  83% {
+    opacity: 1;
+    -webkit-transform: scale(1.14, 1.14);
+    transform: scale(1.14, 1.14); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); } }
 
 .header {
   position: fixed;
@@ -226,16 +311,44 @@ body {
 
 @media screen and (min-width: 700px) {
   .header {
-    height: 100vh !important;
-    width: 100vw !important; }
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px !important;
+    width: 300px !important; }
   .social__wrapper {
     display: block;
     opacity: 1;
-    height: 100vh;
-    width: 100vw; }
+    height: auto;
+    width: auto;
+    top: 12px;
+    right: 14px; }
+    .social__wrapper .social__main {
+      -webkit-transform: perspective(200px) rotateX(0deg);
+      transform: perspective(200px) rotateX(0deg); }
   .social__main li a svg {
-    height: 20px !important;
-    width: 20px; } }
+    height: 46px !important;
+    width: 46px;
+    -webkit-transform: scale(0, 0);
+    transform: scale(0, 0); }
+  .social__main li:nth-child(1) a svg {
+    -webkit-animation: grow 300ms 3.95s forwards;
+    animation: grow 300ms 3.95s forwards; }
+  .social__main li:nth-child(2) svg {
+    -webkit-animation: grow 300ms 4.05s forwards;
+    animation: grow 300ms 4.05s forwards; }
+  .social__main li:nth-child(3) svg {
+    -webkit-animation: grow 300ms 4.15s forwards;
+    animation: grow 300ms 4.15s forwards; }
+  .social__main li:nth-child(4) svg {
+    -webkit-animation: grow 300ms 4.25s forwards;
+    animation: grow 300ms 4.25s forwards; }
+  .social__main li:nth-child(5) svg {
+    -webkit-animation: grow 300ms 4.35s forwards;
+    animation: grow 300ms 4.35s forwards; }
+  .social__main li:nth-child(6) svg {
+    -webkit-animation: grow 300ms 4.45s forwards;
+    animation: grow 300ms 4.45s forwards; } }
 
 @-webkit-keyframes fadeIn {
   0% {
@@ -418,58 +531,6 @@ body {
   .main .container h1 {
     font-size: 3rem; } }
 
-@-webkit-keyframes popup {
-  0% {
-    -webkit-transform: scale(0, 0);
-    transform: scale(0, 0); }
-  100% {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1); } }
-
-@keyframes popup {
-  0% {
-    -webkit-transform: scale(0, 0);
-    transform: scale(0, 0); }
-  100% {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1); } }
-
-.footer {
-  opacity: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  height: 3.125rem;
-  width: 3.125rem;
-  z-index: 150;
-  bottom: 20px;
-  right: 20px;
-  border-radius: 1.5625rem;
-  background: parra_accent;
-  cursor: pointer;
-  transition: all 300ms ease;
-  -webkit-animation: fadeIn 400ms 3.5s forwards ease-out, popup 400ms 3.5s forwards cubic-bezier(0.64, 1.73, 0.66, 0.89);
-  animation: fadeIn 400ms 3.5s forwards ease-out, popup 400ms 3.5s forwards cubic-bezier(0.64, 1.73, 0.66, 0.89); }
-  .footer.active {
-    opacity: 0;
-    transition: all 100ms ease; }
-  .footer svg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 3.125rem;
-    max-width: 3.125rem;
-    max-height: 3.125rem;
-    transition: all 400ms ease; }
-  .header.active:not(.out) + .main + .footer svg:nth-child(1) {
-    -webkit-transform: scale(1.25, 1.25);
-    transform: scale(1.25, 1.25); }
-
-@media screen and (min-width: 62.5rem) {
-  .footer {
-    bottom: 1.875rem;
-    right: 1.875rem; } }
-
 @-webkit-keyframes appear {
   from {
     opacity: 0; }
@@ -515,6 +576,7 @@ body {
     -webkit-animation: appear 2s forwards;
     animation: appear 2s forwards; }
   .portfolio__content {
+    min-height: 105px;
     padding: 6px 10px 28px 10px;
     -webkit-animation: appear 1s forwards;
     animation: appear 1s forwards; }
@@ -558,6 +620,8 @@ body {
       font-size: 11px; }
     .portfolio__field-item {
       display: inline-block; }
+      .portfolio__field-item:not(:last-child)::after {
+        content: ","; }
   .portfolio__footer {
     position: absolute;
     width: 100%;

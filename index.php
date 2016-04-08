@@ -100,6 +100,15 @@
       </aside>
       <h1 class="headline">Nik Payne is a <span class="dynamic"><span class="element"></span></span><br>from Santa Cruz, California</h1>
     </section>
+    <section class="arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 42.5" version="1.1" x="0px" y="0px">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g fill="#000000">
+            <path d="M30,33.879 L0.561,3.39 L3.439,0.61 L30,28.121 L56.561,0.61 L59.439,3.39 L30,33.879"/>
+          </g>
+        </g>
+      </svg>
+    </section>
     <div class="ripple"></div>
   </main>
 
@@ -129,8 +138,8 @@
                 <a href="{{this.url}}"  target="_blank" alt="{{this.name}}">
                   <h2 class="portfolio__title">{{this.name}}</h2>
                 </a>
-                <hr>
                 <div class="portfolio__field">
+                  <hr>
                   <ul class="portfolio__field-list">
                     {{#each this.fields}}
                     <li class="portfolio__field-item">{{this}}</li>

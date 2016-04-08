@@ -1,3 +1,18 @@
+@keyframes grow {
+  0% {
+    opacity: 0;
+    transform: scale(0,0);
+  }
+  83% {
+    opacity: 1;
+    transform: scale(1.14,1.14);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1,1);
+  }
+}
+
 .header {
   position: fixed;
   overflow: hidden;
@@ -145,6 +160,7 @@
   }
 }
 
+
 @media screen and (min-width: 500px) {
   .social {
     &__main {
@@ -185,19 +201,48 @@
 }
 @media screen and (min-width: 700px) {
   .header {
-    height: 100vh !important;
-    width: 100vw !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px !important;
+    width: 300px !important;
   }
   .social {
     &__wrapper {
       display: block;
       opacity: 1;
-      height: 100vh;
-      width: 100vw;
+      height: auto;
+      width: auto;
+      top: 12px;
+      right: 14px;
+      .social__main {
+        transform: perspective(200px) rotateX(0deg);
+      }
     }
-    &__main li a svg {
-      height: 20px !important;
-      width: 20px;
+    &__main {
+      li a svg {
+        height: 46px !important;
+        width: 46px;
+        transform: scale(0,0);
+      }
+      li:nth-child(1) a svg {
+        animation: grow 300ms 3.95s forwards;
+      }
+      li:nth-child(2) svg {
+        animation: grow 300ms 4.05s forwards;
+      }
+      li:nth-child(3) svg {
+        animation: grow 300ms 4.15s forwards;
+      }
+      li:nth-child(4) svg {
+        animation: grow 300ms 4.25s forwards;
+      }
+      li:nth-child(5) svg {
+        animation: grow 300ms 4.35s forwards;
+      }
+      li:nth-child(6) svg {
+        animation: grow 300ms 4.45s forwards;
+      }
     }
   }
 }
