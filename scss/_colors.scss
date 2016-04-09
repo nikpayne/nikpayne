@@ -1,3 +1,11 @@
+$xdark: #181a1f;
+$dark: #21252c;
+$medium: #282c35;
+$light: #384049;
+$darktext: rgb(75,82,101);
+$text: rgb(171, 178, 192);
+$hover: rgb(98, 181, 196);
+
 @mixin color-scheme($from, $to, $accent-from, $accent-to){
   background: $from;
   background: linear-gradient(to bottom, $from 0%, $to 100%);
@@ -16,25 +24,72 @@
       fill: $accent-from;
     }
   }
+  .portfolio {
+    background: $dark;
+    &__item {
+      border: 1px solid $medium;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
+    }
+    &__cover {
+      background-color: #bbb;
+      background-color: $xdark;
+    }
+    a {
+      color: $text;
+      &:hover {
+        color: $hover;
+      }
+    }
+    &__author {
+      p {
+        color: $darktext;
+      }
+    }
+    hr {
+      background: $medium;
+    }
+    &__field {
+      &-list {
+        color: $text;
+      }
+    }
+    &__footer {
+      background: #f6f6f6;
+      background: #282c35;
+      border-top: 1px solid $medium;
+      span {
+        color: rgb(85,85,85);
+        color: $darktext;
+      }
+      &-likes, &-views {
+        &::before {
+          color: rgb(153,153,153);
+          color: $darktext;
+          // text-shadow: rgba(70,80,98,.25) 0px 1px 0px;
+          text-shadow: rgba(0,0,0,.25) 0px 1px 0px;
+        }
+      }
+    }
+  }
 }
 
 body {
   &.parra {
     @include color-scheme($parra_from, $parra_to, $parra_accent, $adapt_accent);
   }
-  &.adapt {
-    @include color-scheme($adapt_from, $adapt_to, $adapt_accent, $vibe_accent);
-  }
-  &.vibe {
-    @include color-scheme($vibe_from, $vibe_to, $vibe_accent, $deep_accent);
-  }
-  &.deep {
-    @include color-scheme($deep_from, $deep_to, $deep_accent, $zest_accent);
-  }
   &.zest {
     @include color-scheme($zest_from, $zest_to, $zest_accent, $concert_accent);
   }
-  &.concert {
-    @include color-scheme($concert_from, $concert_to, $concert_accent, $parra_accent);
-  }
+  // &.adapt {
+  //   @include color-scheme($adapt_from, $adapt_to, $adapt_accent, $vibe_accent);
+  // }
+  // &.vibe {
+  //   @include color-scheme($vibe_from, $vibe_to, $vibe_accent, $deep_accent);
+  // }
+  // &.deep {
+  //   @include color-scheme($deep_from, $deep_to, $deep_accent, $zest_accent);
+  // }
+  // &.concert {
+  //   @include color-scheme($concert_from, $concert_to, $concert_accent, $parra_accent);
+  // }
 }

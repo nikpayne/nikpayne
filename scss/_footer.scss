@@ -6,9 +6,21 @@
     transform: scale(1,1);
   }
 }
+@keyframes slowaxis {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(1000deg);
+  }
+}
+@keyframes myOrbit {
+    from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to   { transform: rotate(10000deg) translateX(150px) rotate(900deg); }
+}
 
 .footer {
-  opacity: 0;
+  // opacity: 0;
   padding: 0;
   margin: 0;
   position: absolute;
@@ -21,7 +33,7 @@
   background: parra_accent;
   cursor: pointer;
   transition: all 300ms ease;
-  animation: fadeIn 400ms 3.5s forwards ease-out, popup 400ms 3.5s forwards cubic-bezier(.64,1.73,.66,.89);
+  // animation: fadeIn 400ms 3.5s forwards ease-out, popup 400ms 3.5s forwards cubic-bezier(.64,1.73,.66,.89);
 
   &.active {
     opacity: 0;
@@ -45,7 +57,21 @@
 }
 @media screen and (min-width: 700px) {
   .footer {
+    height: 100vh;
+    width: 100vw;
     display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0px !important;
+    right: 0px !important;
+    svg {
+      display: block;
+      position: static;
+      animation: myOrbit 4000s forwards linear;
+
+    }
   }
 }
 

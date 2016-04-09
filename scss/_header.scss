@@ -14,48 +14,14 @@
 }
 
 .header {
-  position: fixed;
+  position: absolute;
   overflow: hidden;
   z-index: 200;
-  top: 0;
-  right: 0;
-  height: rem(20px);
-  width: rem(20px);
-  transition: background 300ms ease-out, height 0ms 400ms ease-out, width 0ms 400ms ease-out;
-  &.active {
-    height: 100%;
-    width: 100%;
-    transition: background 300ms 5ms ease-out, height 0ms ease-out, width 0ms ease-out;
-    background: #FF8076;
-  }
-  &.active.out {
-    background: rgba(255,255,255,0);
-    transition: background 400ms ease-in;
-  }
+  top: 10px;
+  right: 10px;
 }
 
 .social {
-  &__wrapper {
-    display: none;
-    position: absolute;
-    z-index: 300;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    flex-direction: column;
-    cursor: pointer;
-
-    top: -7%;
-    transition: all 200ms ease;
-    .social__main {
-      transform: perspective(200px) rotateX(6deg);
-    }
-  }
   &__main {
     display: flex;
     flex-direction: row;
@@ -64,201 +30,55 @@
     list-style: none;
     padding: 0;
     margin: 0;
-
     li a svg {
-      height: 40px;
-      width: auto;
+      height: 32px;
+      width: 32px;
+      max-height: 32px;
+      max-width: 32px;
+      transform: scale(0,0);
+      &:hover {
+        path { fill: #FFF2AB; }
+      }
+      &:active {
+        path { fill: yellow; }
+      }
     }
-  }
-  .active &__wrapper {
-    opacity: 1;
-    top: 0%;
-    transition: all 400ms ease-out;
-    .social__main {
-      transform: perspective(200px) rotateX(0deg);
-      transition: all 400ms ease-out;
-    }
-  }
-  .out &__wrapper {
-    opacity: 0;
-    top: 7%;
-    transition: all 400ms ease-in;
-    .social__main {
-      transform: perspective(200px) rotateX(-6deg);
-      transition: all 400ms ease-in;
-    }
+    li:nth-child(1) svg { animation: grow 300ms 3.95s forwards; }
+    li:nth-child(2) svg { animation: grow 300ms 4.05s forwards; }
+    li:nth-child(3) svg { animation: grow 300ms 4.15s forwards; }
+    li:nth-child(4) svg { animation: grow 300ms 4.25s forwards; }
+    li:nth-child(5) svg { animation: grow 300ms 4.35s forwards; }
+    li:nth-child(6) svg { animation: grow 300ms 4.45s forwards; }
   }
 }
 
-
-.hamburger {
-  position: fixed;
-  display: none;
-  z-index: 200;
-  top: 0;
-  right: 0;
-  height: rem(70px);
-  width: rem(70px);
-  opacity: 1;
-  animation: fade-in 1s 3.5s forwards ease-out;
-  transform: rotateZ(0deg);
-  transition: all 160ms ease-out;
-
-  span {
-    position: absolute;
-    display: block;
-    opacity: 1;
-    top: 0;
-    left: 23px;
-    height: 2px;
-    width: 24px;
-    background: rgba(255,255,255,.4);
-    transition: all 160ms ease-out;
-    &:nth-child(1){ top: 27px; }
-    &:nth-child(3){ top: 39px; }
-    &:nth-child(2){
-      top: 33px;
-      background: rgba(255,255,255,.4);
-      transition: background-color 160ms ease-out;
-      &::before, &::after {
-        transition: transform 160ms ease-out;
-        position: absolute;
-        content: "";
-        height: 2px;
-        width: 24px;
-        display: block;
-        background: rgba(255,255,255,0);
-      }
-    }
-  }
-  .active & {
-    transform: rotateZ(0deg);
-    transition: all 160ms ease-out;
-    span {
-      &:nth-child(1) {
-        opacity: 1;
-        top: 33px;
-        transform: rotateZ(135deg);
-      }
-      &:nth-child(3) {
-        opacity: 1;
-        top: 33px;
-        transform: rotateZ(45deg);
-      }
-      &:nth-child(2) {
-        background: rgba(255,255,255,0);
-        &::before {
-          opacity: 0;
-          transform: rotateZ(-45deg);
-        }
-        &::after {
-          opacity: 0;
-          transform: rotateZ(45deg);
-        }
-      }
+@media screen and (min-width: 375px) {
+  .social__main {
+    li a svg {
+      height: 38px;
+      width: 38px;
+      max-height: 38px;
+      max-width: 38px;
     }
   }
 }
-
-
-@media screen and (min-width: 500px) {
-  .social {
-    &__main {
-      transform: rotateZ(0deg);
-      transition: all 200ms ease;
-      li a {
-        svg {
-          height: 60px;
-          width: 60px;
-          &:visited {
-            path {
-              fill: black;
-            }
-          }
-          &:hover {
-            path {
-              fill: #FFD600;
-              fill: #52F9D4;
-              fill: #FD939C;
-              fill: #FFF2AB;
-            }
-          }
-          &:active {
-            path {
-              fill: #007A87;
-              fill: yellow;
-            }
-          }
-        }
-
-      }
-      &.active {
-        transform: rotateZ(360deg);
-        transition: all 200ms ease;
-      }
+@media screen and (min-width: 425px) {
+  .social__main {
+    li a svg {
+      height: 42px;
+      width: 42px;
+      max-height: 42px;
+      max-width: 42px;
     }
   }
 }
-@media screen and (min-width: 700px) {
-  .header {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 50px !important;
-    width: 300px !important;
-  }
-  .social {
-    &__wrapper {
-      display: block;
-      opacity: 1;
-      height: auto;
-      width: auto;
-      top: 12px;
-      right: 14px;
-      .social__main {
-        transform: perspective(200px) rotateX(0deg);
-      }
+@media screen and (min-width: 768px) {
+  .social__main {
+    li a svg {
+      height: 48px;
+      width: 48px;
+      max-height: 48px;
+      max-width: 48px;
     }
-    &__main {
-      li a svg {
-        height: 46px !important;
-        width: 46px;
-        transform: scale(0,0);
-      }
-      li:nth-child(1) a svg {
-        animation: grow 300ms 3.95s forwards;
-      }
-      li:nth-child(2) svg {
-        animation: grow 300ms 4.05s forwards;
-      }
-      li:nth-child(3) svg {
-        animation: grow 300ms 4.15s forwards;
-      }
-      li:nth-child(4) svg {
-        animation: grow 300ms 4.25s forwards;
-      }
-      li:nth-child(5) svg {
-        animation: grow 300ms 4.35s forwards;
-      }
-      li:nth-child(6) svg {
-        animation: grow 300ms 4.45s forwards;
-      }
-    }
-  }
-}
-@media screen and (min-width: 900px) {
-  .social {
-    // &__main li a svg {
-    //   height: 90px !important;
-    //   width: 90px;
-    // }
-  }
-}
-@media screen and (min-width: 1000px) {
-  .social {
-    // &__main li a svg {
-    //   height: 100px !important;
-    //   width: 100px;
-    // }
   }
 }

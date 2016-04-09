@@ -16,6 +16,11 @@
   }
 }
 
+@keyframes myOrbit {
+    from { transform: rotate(0deg) translateX(20vh) rotate(0deg); }
+    to   { transform: rotate(10000deg) translateX(20vh) rotate(1200deg); }
+}
+
 .main {
   position: relative;
   z-index: 90;
@@ -28,6 +33,19 @@
   overflow: hidden;
   transition: opacity 200ms ease;
   cursor: pointer;
+  svg {
+    opacity: 0;
+    position: fixed;
+    max-height: 100px;
+    max-width: 100px;
+    height: 100px;
+    width: 100px;
+    top: 50%;
+    right: 50%;
+    // transform: translateX(-50%);
+    // transform: translateY(-50%);
+    animation: fadeIn 20s 1s forwards, myOrbit 2000s forwards linear;
+  }
 
   .container {
     width: 100%;

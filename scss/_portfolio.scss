@@ -6,10 +6,17 @@
     opacity: 1;
   }
 }
+$xdark: #181a1f;
+$dark: #21252c;
+$medium: #282c35;
+$light: #384049;
+$text: rgb(75,82,101);
+
+
 .portfolio {
   min-height: 100vh;
   width: 100vw;
-  background: white;
+  background: $dark;
   padding-top: 40px;
   &__row {
     max-width: 1140px;
@@ -33,7 +40,6 @@
     float: left;
     overflow: hidden;
     border-radius: 4px;
-    border: 1px solid #e3e3e3;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
     margin-right: 20px;
     margin-bottom: 20px;
@@ -49,7 +55,6 @@
     display: block;
     min-height: 158px;
     margin: 0;
-    background-color: #bbb;
     background-image: url('img/loading.svg');
     background-size: 60px 60px;
     background-position: center center;
@@ -64,35 +69,37 @@
       display: block;
       max-width: 100%;
     }
-    &-link:hover {
-      & + a {
-        color: rgb(0,0,238) !important;
-      }
-    }
   }
   a {
     text-decoration: none;
-    color: #383838;
-    &:hover {
-      color: rgb(0,0,238);
-    }
   }
   &__title {
     font-size: rem(12px);
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     margin-top: 0;
+    height: 32px;
+    margin-bottom: 12px;
+  }
+  &__author {
+    p {
+      font-size: 11px;
+      margin-bottom: 7px;
+    }
+    a {
+      text-decoration: none;
+      font-size: 12px;
+      font-family: "Helvetica Neue", Helvetica, sans-serif;
+    }
   }
   hr {
     height: 1px;
     width: 100%;
     border: none;
-    background: rgb(227,227,227);
   }
   &__field {
     list-style: none;
     &-list {
       padding-left: 0;
-      color: rgb(107,107,107);
       font-size: 11px;
     }
     &-item {
@@ -109,12 +116,8 @@
     left: 0;
     height: 30px;
     padding: 7px 8px;
-    background: #f6f6f6;
-    border-top: 1px solid #e7e7e7;
-    box-shadow: 0 1px 0 0 #fff inset;
     font-size: 12px;
     span {
-      color: rgb(85,85,85);
       font-weight: bold;
       display: inline-block;
       padding-bottom: 10px;
@@ -130,8 +133,6 @@
         top: -1px;
         font-size: 16px;
         font-family: "ico-moon", sans-serif;
-        text-shadow: rgb(255, 255, 255) 0px 1px 0px;
-        color: rgb(153,153,153);
       }
     }
     &-likes {
