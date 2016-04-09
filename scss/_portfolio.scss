@@ -18,9 +18,13 @@ $text: rgb(75,82,101);
   width: 100vw;
   background: $dark;
   padding-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   &__row {
     max-width: 1140px;
-    padding-left: 20px;
+    padding: 20px 0 20px 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -154,20 +158,20 @@ $text: rgb(75,82,101);
 @media screen and (max-width: 1240px) {
   .portfolio__row {
     max-width: 920px;
-    .portfolio__item {
-      &:nth-child(9), &:nth-child(10) {
-        display: none;
-      }
-    }
   }
 }
 @media screen and (max-width: 920px) {
   .portfolio__row {
     max-width: 696px;
-    .portfolio__item {
-      &:nth-child(7), &:nth-child(8), &:nth-child(9), &:nth-child(10) {
-        display: none;
-      }
-    }
+  }
+}
+@media screen and (max-width: 696px) {
+  .portfolio__row {
+    max-width: 472px;
+  }
+}
+@media screen and (max-width: 472px) {
+  .portfolio__row {
+    max-width: 248px;
   }
 }

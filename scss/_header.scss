@@ -82,3 +82,23 @@
     }
   }
 }
+@media screen and (min-width: 1024px) {
+  .social__main {
+    li a svg {
+      height: 56px;
+      width: 56px;
+      max-height: 56px;
+      max-width: 56px;
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .social__main {
+    li a svg {
+      height: 58px;
+      width: 58px;
+      max-height: 58px;
+      max-width: 58px;
+    }
+  }
+}

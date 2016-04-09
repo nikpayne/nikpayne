@@ -76,6 +76,11 @@ $hover: rgb(98, 181, 196);
 body {
   &.parra {
     @include color-scheme($parra_from, $parra_to, $parra_accent, $adapt_accent);
+    .main svg {
+      path {
+        fill: #007DA2 !important;
+      }
+    }
   }
   &.zest {
     @include color-scheme($zest_from, $zest_to, $zest_accent, $concert_accent);

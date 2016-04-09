@@ -17,8 +17,8 @@
 }
 
 @keyframes myOrbit {
-    from { transform: rotate(0deg) translateX(20vh) rotate(0deg); }
-    to   { transform: rotate(10000deg) translateX(20vh) rotate(1200deg); }
+    from { transform: rotate(-150deg) translateX(24vh) rotate(0deg); }
+    to   { transform: rotate(10000deg) translateX(24vh) rotate(20000deg); }
 }
 
 .main {
@@ -33,22 +33,29 @@
   overflow: hidden;
   transition: opacity 200ms ease;
   cursor: pointer;
-  svg {
-    opacity: 0;
+  .orbit {
     position: fixed;
-    max-height: 100px;
-    max-width: 100px;
-    height: 100px;
-    width: 100px;
-    top: 50%;
-    right: 50%;
-    // transform: translateX(-50%);
-    // transform: translateY(-50%);
-    animation: fadeIn 20s 1s forwards, myOrbit 2000s forwards linear;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    svg {
+      opacity: 1;
+      max-height: 100px;
+      max-width: 100px;
+      height: 100px;
+      width: 100px;
+      animation: fadeIn 24s 0s forwards, myOrbit 1000s forwards linear;
+    }
   }
 
   .container {
     width: 100%;
+    // height: 100%;
     max-width: rem(1135px);
     margin: 0 auto;
     #typed-strings {

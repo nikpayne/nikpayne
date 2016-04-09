@@ -446,47 +446,47 @@
 			ripple.css({top: y, left: x}).addClass('animate');
 		});
 
-		var header = $('.header'),
-				timer;
-		function toggleHeader(){
-			if(header.hasClass("active") && !header.hasClass("out")){
-				header.addClass("out");
-				timer = setTimeout(function(){
-					header.removeClass("active").removeClass("out");
-				}, 400);
-			} else if (header.hasClass("out")){
-				clearTimeout(timer);
-				header.removeClass("out");
-			} else {
-				header.addClass("active");
-			}
-		}
+		// var header = $('.header'),
+		// 		timer;
+		// function toggleHeader(){
+		// 	if(header.hasClass("active") && !header.hasClass("out")){
+		// 		header.addClass("out");
+		// 		timer = setTimeout(function(){
+		// 			header.removeClass("active").removeClass("out");
+		// 		}, 400);
+		// 	} else if (header.hasClass("out")){
+		// 		clearTimeout(timer);
+		// 		header.removeClass("out");
+		// 	} else {
+		// 		header.addClass("active");
+		// 	}
+		// }
 
-		$(document).on('touchstart click', '.social__wrapper', function(event){
-			if(event.handled !== true) {
-				if(event.target.className == "social__wrapper"){
-					event.stopPropagation();
-					event.preventDefault();
-					toggleHeader();
-				} else{
-					// console.log(event.target);
-				}
-				event.handled = true;
-			} else {
-				return false;
-			}
-		});
-
-		$(document).on('touchstart click', '.footer', function(event){
-			event.stopPropagation();
-			event.preventDefault();
-			if(event.handled !== true) {
-				toggleHeader();
-				event.handled = true;
-			} else {
-				return false;
-			}
-		});
+		// $(document).on('touchstart click', '.social__wrapper', function(event){
+		// 	if(event.handled !== true) {
+		// 		if(event.target.className == "social__wrapper"){
+		// 			event.stopPropagation();
+		// 			event.preventDefault();
+		// 			toggleHeader();
+		// 		} else{
+		// 			// console.log(event.target);
+		// 		}
+		// 		event.handled = true;
+		// 	} else {
+		// 		return false;
+		// 	}
+		// });
+		//
+		// $(document).on('touchstart click', '.footer', function(event){
+		// 	event.stopPropagation();
+		// 	event.preventDefault();
+		// 	if(event.handled !== true) {
+		// 		toggleHeader();
+		// 		event.handled = true;
+		// 	} else {
+		// 		return false;
+		// 	}
+		// });
 
 		// Using Behance API
 		var apiKey  = 'tOiGzovRMz21WNXNg6Dis8mQmkb0Aj77';
