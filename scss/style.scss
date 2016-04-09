@@ -1,4 +1,4 @@
-/*
+/*!
 Theme Name: NikPayne
 Theme URI: http://www.github.com/nikpayne/nikpayne
 Author: Nikolas Payne
@@ -13,6 +13,7 @@ Text Domain: twentythirteen
 /*
 sketch:type=(["'])(?:(?=(\\?))\2.)*?\1
 */
+
 
 @function rem($size) { @return #{$size / 16px;}rem; }
 @function letterspacing($kerning, $pixelHeight) { $rem: $pixelHeight/16; $size: $kerning/1000; @return #{$rem*$size}rem; }

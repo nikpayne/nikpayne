@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<body class="preload zest <?php if ( is_user_logged_in() ): echo "logged-in"; endif; ?>">
+<body class="preload parra <?php if ( is_user_logged_in() ): echo "logged-in"; endif; ?>">
   <header class="header">
     <ul class="social__main">
       <li class="behance"><a class="social__link" target="_blank" href="http://www.behance.net/nikpayne">
@@ -127,12 +127,12 @@
               <a class="portfolio__cover-link" href="{{this.url}}" target="_blank" alt="{{this.name}}">
                 <figure class="portfolio__cover" title="{{this.name}}">
                   {{#if this.covers.[404]}}
-                  <img class="portfolio__cover-image" src="{{this.covers.[404]}}" alt="">
+                  <img class="portfolio__cover-image" src="{{this.covers.[404]}}" alt="{{this.name}}">
                   {{else}}
                   {{#if this.covers.[230]}}
-                  <img class="portfolio__cover-image" src="{{this.covers.[230]}}" alt="">
+                  <img class="portfolio__cover-image" src="{{this.covers.[230]}}" alt="{{this.name}}">
                   {{else}}
-                  <img class="portfolio__cover-image" src="{{this.covers.[202]}}" alt="">
+                  <img class="portfolio__cover-image" src="{{this.covers.[202]}}" alt="{{this.name}}">
                   {{/if}}
                   {{/if}}
                 </figure>
