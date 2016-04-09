@@ -17,7 +17,7 @@ gulp.task('serve', ['sass'], function() {
 gulp.task('sass', function() {
   return gulp.src('./scss/style.scss')
     .pipe(plum())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(auto({ browsers: ['last 2 versions'], cascade: false }))
     .pipe(gulp.dest('.'))
     .pipe(sync.stream());

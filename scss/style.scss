@@ -85,6 +85,13 @@ body {
   font-family: "medium", sans-serif;
 }
 
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
 $parra_from: #007A87;
 $parra_to: #008687;
 $parra_accent: #FF8076;

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<body class="zest <?php if ( is_user_logged_in() ): echo "logged-in"; endif; ?>">
+<body class="preload zest <?php if ( is_user_logged_in() ): echo "logged-in"; endif; ?>">
   <header class="header">
     <ul class="social__main">
       <li class="behance"><a class="social__link" target="_blank" href="http://www.behance.net/nikpayne">

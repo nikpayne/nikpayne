@@ -33,8 +33,9 @@
   overflow: hidden;
   transition: opacity 200ms ease;
   cursor: pointer;
+
   .orbit {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     height: 100%;
@@ -142,37 +143,37 @@
     }
 }
 @media screen and (min-width: rem(340px)) {
-  .main .container h1 { font-size: rem(22px); }
+  .main .container h1 { font-size: rem(21px); }
 }
 @media screen and (min-width: rem(370px)) {
-  .main .container h1 { font-size: rem(24px); }
+  .main .container h1 { font-size: rem(23px); }
 }
 @media screen and (min-width: rem(390px)) {
-  .main .container h1 { font-size: rem(26px); }
+  .main .container h1 { font-size: rem(25px); }
 }
 @media screen and (min-width: rem(420px)) {
-  .main .container h1 { font-size: rem(28px); }
+  .main .container h1 { font-size: rem(27px); }
 }
 @media screen and (min-width: rem(460px)) {
-  .main .container h1 { font-size: rem(30px); }
+  .main .container h1 { font-size: rem(29px); }
 }
 @media screen and (min-width: rem(500px)) {
-  .main .container h1 { font-size: rem(32px); }
+  .main .container h1 { font-size: rem(31px); }
 }
 @media screen and (min-width: rem(540px)) {
-  .main .container h1 { font-size: rem(36px); }
+  .main .container h1 { font-size: rem(35px); }
 }
 @media screen and (min-width: rem(580px)) {
-  .main .container h1 { font-size: rem(38px); }
+  .main .container h1 { font-size: rem(37px); }
 }
 @media screen and (min-width: rem(620px)) {
-  .main .container h1 { font-size: rem(40px); }
+  .main .container h1 { font-size: rem(39px); }
 }
 @media screen and (min-width: rem(660px)) {
-  .main .container h1 { font-size: rem(42px); }
+  .main .container h1 { font-size: rem(41px); }
 }
 @media screen and (min-width: rem(720px)) {
-  .main .container h1 { font-size: rem(44px); }
+  .main .container h1 { font-size: rem(43px); }
 }
 @media screen and (min-width: rem(800px)) {
   .main .container h1 { font-size: rem(48px); }

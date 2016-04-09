@@ -407,6 +407,9 @@
 })(window.jQuery);
 
 (function($) {
+	$(window).load(function() {
+		$("body").removeClass("preload");
+	});
 	$(document).ready(function () {
 		//Fastclick
 		if ('addEventListener' in document) {
@@ -487,6 +490,7 @@
 		// 		return false;
 		// 	}
 		// });
+
 
 		// Using Behance API
 		var apiKey  = 'tOiGzovRMz21WNXNg6Dis8mQmkb0Aj77';
