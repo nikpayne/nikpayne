@@ -168,6 +168,15 @@ body {
   min-height: 100%;
   &.parra {
     @include color-scheme(#2C323C, #2D333D, $parra_accent, $adapt_accent, #2E343F);
+    .orbit svg {
+      display: none !important;
+    }
+    .main {
+      background: url('img/wires.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
     @include darkUI;
   }
   &.zest {
@@ -176,6 +185,7 @@ body {
   }
   &.moon {
     @include color-scheme($dark, $medium, $parra_accent, $adapt_accent, #23272f);
+    @include color-scheme(#2C323C, #2D333D, $parra_accent, $adapt_accent, #2E343F);
     @include darkUI;
   }
 }

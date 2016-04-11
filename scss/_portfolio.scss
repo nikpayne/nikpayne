@@ -17,8 +17,6 @@ $text: rgb(75,82,101);
   position: relative;
   z-index: 100;
   z-index: 1000;
-  min-height: 100vh;
-  min-width: 100vw;
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
@@ -203,13 +201,27 @@ $text: rgb(75,82,101);
   }
 
 }
-
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 3000px) {
   .portfolio__row {
-    max-width: 900px;
+    max-width: 1570px;
   }
 }
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1570px) {
+  .portfolio__row {
+    max-width: 1344px;
+  }
+}
+@media screen and (max-width: 1344px) {
+  .portfolio__row {
+    max-width: 1126px;
+  }
+}
+@media screen and (max-width: 1126px) {
+  .portfolio__row {
+    max-width: 896px;
+  }
+}
+@media screen and (max-width: 896px) {
   .portfolio__row {
     max-width: 676px;
     & > h2 {
@@ -283,15 +295,5 @@ $text: rgb(75,82,101);
   .portfolio__footer {
     position: absolute;
     left: 140px;
-  }
-}
-@media screen and (min-width: 1445px) {
-  .portfolio__item {
-    &:nth-child(11), &:nth-child(12), &:nth-child(13), &:nth-child(14), &:nth-child(15) {
-      display: block;
-    }
-    &:nth-child(16), &:nth-child(17), &:nth-child(18), &:nth-child(19), &:nth-child(20) {
-      display: block;
-    }
   }
 }

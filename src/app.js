@@ -427,7 +427,7 @@
 
 		// Class Rotation
 		function loopClasses(){
-			var classes = ["parra", "zest", "moon"];
+			var classes = ["parra", "moon"];
 			for(var i = 0; i < classes.length; i++){
 				if($('body').hasClass(classes[i])){
 					if(i != classes.length - 1) {
