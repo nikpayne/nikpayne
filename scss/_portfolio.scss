@@ -12,22 +12,45 @@ $medium: #282c35;
 $light: #384049;
 $text: rgb(75,82,101);
 
-
 .portfolio {
+  background: white;
+  position: relative;
+  z-index: 100;
+  z-index: 1000;
   min-height: 100vh;
-  width: 100vw;
-  background: $dark;
-  padding-top: 40px;
+  min-width: 100vw;
+  padding: 3rem 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
   &__row {
     max-width: 1140px;
-    padding: 20px 0 20px 20px;
+    padding: 0;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    &.title {
+      display: block !important;
+      padding: 0 10px !important;
+    }
+    & > h2 {
+      &.hidden {
+        opacity: 0;
+        animation: none;
+      }
+      display: none;
+      text-align: center;
+      font-family: 'helvetica neue', 'helvetica', sans-serif;
+      font-weight: normal;
+      opacity: 0;
+      margin-top: 0;
+      margin-bottom: 40px;
+      animation: appear 2s forwards;
+    }
   }
   &__main {
 
@@ -36,6 +59,9 @@ $text: rgb(75,82,101);
     padding: 0;
     margin: 0;
     list-style: none;
+    &.hidden {
+      display: none;
+    }
   }
   &__item {
     position: relative;
@@ -45,15 +71,31 @@ $text: rgb(75,82,101);
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
     margin-bottom: 20px;
+    opacity: 0;
     animation: appear 2s forwards;
+    // &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5), &:nth-child(6), &:nth-child(7), &:nth-child(8), &:nth-child(9), &:nth-child(10) {
+    //   animation: appear 2s forwards;
+    // }
+    // &:nth-child(11), &:nth-child(12), &:nth-child(13), &:nth-child(14), &:nth-child(15) {
+    //   display: none;
+    // }
+    &:nth-child(16), &:nth-child(17), &:nth-child(18), &:nth-child(19), &:nth-child(20) {
+      display: none;
+    }
+    &.hidden {
+      opacity: 0;
+      animation: none;
+      .portfolio__cover-image {
+        display: none;
+      }
+    }
   }
   &__content {
     min-height: 105px;
     padding: 6px 10px 28px 10px;
-    animation: appear 1s forwards;
-
   }
   &__cover {
     display: block;
@@ -71,11 +113,17 @@ $text: rgb(75,82,101);
 
     &-image {
       display: block;
+      opacity: 1;
       max-width: 100%;
+      // animation: appear 1s forwards;
     }
   }
   a {
     text-decoration: none;
+  }
+  &__content {
+    position: relative;
+    z-index: 10;
   }
   &__title {
     font-size: rem(12px);
@@ -115,6 +163,7 @@ $text: rgb(75,82,101);
   }
   &__footer {
     position: absolute;
+    z-index: 20;
     width: 100%;
     bottom: 0;
     left: 0;
@@ -157,21 +206,92 @@ $text: rgb(75,82,101);
 
 @media screen and (max-width: 1240px) {
   .portfolio__row {
-    max-width: 920px;
+    max-width: 900px;
   }
 }
 @media screen and (max-width: 920px) {
   .portfolio__row {
-    max-width: 696px;
+    max-width: 676px;
+    & > h2 {
+      font-size: rem(30px);
+    }
   }
 }
 @media screen and (max-width: 696px) {
   .portfolio__row {
-    max-width: 472px;
+    max-width: 452px;
+    & > h2 {
+      font-size: rem(26px);
+    }
   }
 }
 @media screen and (max-width: 472px) {
   .portfolio__row {
-    max-width: 248px;
+    width: 100%;
+    max-width: none;
+    padding: 0 20px;
+    & > h2 {
+      font-size: rem(22px);
+    }
+  }
+  .portfolio__item {
+    width: auto;
+    height: auto;
+    margin: 0 auto 20px auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+  }
+  .portfolio__cover {
+    max-height: 158px;
+    max-width: 202px;
+    height: 158px;
+    width: 202px;
+    overflow: hidden;
+  }
+  .portfolio__cover-image {
+    max-height: 158px;
+    max-width: 202px;
+    height: 158px;
+    width: 202px;
+  }
+  .portfolio__content {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 138px;
+  }
+  .portfolio__title {
+    width: 100%;
+    min-height: 48px;
+  }
+  .portfolio__footer {
+    position: absolute;
+    left: 202px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .portfolio__row > h2 {
+      font-size: rem(18px);
+  }
+}
+@media screen and (max-width: 400px) {
+  .portfolio__cover {
+    overflow: hidden;
+    max-width: 140px;
+  }
+  .portfolio__footer {
+    position: absolute;
+    left: 140px;
+  }
+}
+@media screen and (min-width: 1445px) {
+  .portfolio__item {
+    &:nth-child(11), &:nth-child(12), &:nth-child(13), &:nth-child(14), &:nth-child(15) {
+      display: block;
+    }
+    &:nth-child(16), &:nth-child(17), &:nth-child(18), &:nth-child(19), &:nth-child(20) {
+      display: block;
+    }
   }
 }

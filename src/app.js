@@ -417,15 +417,17 @@
 				FastClick.attach(document.body);
 			}, false);
 		}
+
 		//Typing
 		$(".element").typed({
 			stringsElement: $('#typed-strings'),
 			typeSpeed: 70,
 			loop: false
 		});
+
+		// Class Rotation
 		function loopClasses(){
-			var classes = ["parra", "adapt", "vibe", "deep", "zest"];
-			classes = ["parra", "zest"];
+			var classes = ["parra", "zest", "moon"];
 			for(var i = 0; i < classes.length; i++){
 				if($('body').hasClass(classes[i])){
 					if(i != classes.length - 1) {
@@ -440,63 +442,26 @@
 			}
 		}
 
-		$('.main').on('touchstart click', function (e) {
-			loopClasses();
-			var ripple = $('.main').find('.ripple');
-			ripple.removeClass('animate');
-			var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);
-			var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
-			ripple.css({top: y, left: x}).addClass('animate');
+		// Bubbling Effect
+		$('.main').on('click', function (e) {
+			if(event.handled !== true) {
+				loopClasses();
+				var ripple = $('.main').find('.ripple');
+				ripple.removeClass('animate');
+				var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);
+				var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
+				ripple.css({top: y, left: x}).addClass('animate');
+			} else {
+				return false;
+			}
 		});
-
-		// var header = $('.header'),
-		// 		timer;
-		// function toggleHeader(){
-		// 	if(header.hasClass("active") && !header.hasClass("out")){
-		// 		header.addClass("out");
-		// 		timer = setTimeout(function(){
-		// 			header.removeClass("active").removeClass("out");
-		// 		}, 400);
-		// 	} else if (header.hasClass("out")){
-		// 		clearTimeout(timer);
-		// 		header.removeClass("out");
-		// 	} else {
-		// 		header.addClass("active");
-		// 	}
-		// }
-
-		// $(document).on('touchstart click', '.social__wrapper', function(event){
-		// 	if(event.handled !== true) {
-		// 		if(event.target.className == "social__wrapper"){
-		// 			event.stopPropagation();
-		// 			event.preventDefault();
-		// 			toggleHeader();
-		// 		} else{
-		// 			// console.log(event.target);
-		// 		}
-		// 		event.handled = true;
-		// 	} else {
-		// 		return false;
-		// 	}
-		// });
-		//
-		// $(document).on('touchstart click', '.footer', function(event){
-		// 	event.stopPropagation();
-		// 	event.preventDefault();
-		// 	if(event.handled !== true) {
-		// 		toggleHeader();
-		// 		event.handled = true;
-		// 	} else {
-		// 		return false;
-		// 	}
-		// });
-
 
 		// Using Behance API
 		var apiKey  = 'tOiGzovRMz21WNXNg6Dis8mQmkb0Aj77';
 		var userID  = 'nikpayne';
-		var perPage = 10;
+		var perPage = 20;
 		var behanceProjectAPI = 'http://www.behance.net/v2/users/'+ userID +'/projects?callback=?&api_key=' + apiKey + '&per_page=' + perPage;
+		var behanceUserAPI = 'http://www.behance.net/v2/users/'+ userID +'?callback=?&api_key=' + apiKey;
 
 		function setPortfolioTemplate() {
 			var projectData = JSON.parse(sessionStorage.getItem('behanceProject')),
@@ -504,6 +469,14 @@
 			template    = Handlebars.compile(getTemplate),
 			result      = template(projectData);
 			$('#portfolio').html(result);
+		};
+
+		function setFooterTemplate() {
+			var projectData = JSON.parse(sessionStorage.getItem('behanceUser')),
+			footerTemplate  = $('#footer-template').html(),
+			template        = Handlebars.compile(footerTemplate),
+			result        = template(projectData);
+			$('#footer').html(result);
 		};
 
 		if(sessionStorage.getItem('behanceProject')) {
@@ -515,6 +488,41 @@
 				setPortfolioTemplate();
 			});
 		};
+		if(sessionStorage.getItem('behanceUser')) {
+			setFooterTemplate();
+		} else {
+			$.getJSON(behanceUserAPI, function(user) {
+				var data = JSON.stringify(user);
+				sessionStorage.setItem('behanceUser', data);
+				setFooterTemplate();
+			});
+		};
+
+		// var target = $(".portfolio").offset().top + 100;
+		var interval = setInterval(function() {
+			$('.hidden').each(function(){
+				if($('.hidden').length === 0){
+					clearInterval(interval);
+				}
+				if($(window).scrollTop() + $(window).height() >= $(this).offset().top + 100){
+					var url = $(this).find('.portfolio__cover-image').data('src');
+					$(this).find('.portfolio__cover-image').attr('src', url);
+					if($(this).hasClass("hidden")){
+						$(this).removeClass("hidden");
+					}
+				}
+			});
+
+		    // if ($(window).scrollTop() + $(window).height() >= target) {
+				// 		$('.hidden').removeClass("hidden");
+				// 		$('img').each(function(){
+				// 			var src = $(this).data('src');
+				// 			$(this).attr("src", src);
+				// 		})
+				// 		$('.portfolio__cover-image').removeClass("hidden");
+		    //     // clearInterval(interval);
+		    // }
+		}, 250);
 
 	});
 })(window.jQuery);

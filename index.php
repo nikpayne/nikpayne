@@ -104,35 +104,24 @@
       </aside>
       <h1 class="headline">Nik Payne is a <span class="dynamic"><span class="element"></span></span><br>from Santa Cruz, California</h1>
     </section>
-    <section class="arrow">
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 42.5" version="1.1" x="0px" y="0px">
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g fill="#FFFFFF">
-            <path d="M30,33.879 L0.561,3.39 L3.439,0.61 L30,28.121 L56.561,0.61 L59.439,3.39 L30,33.879"/>
-          </g>
-        </g>
-      </svg> -->
-    </section>
     <div class="ripple"></div>
   </main>
-  <?php get_footer(); ?>
-
-  <section class="portfolio">
+  <section name="portfolio-section" class="portfolio preload">
     <div class="portfolio__row">
       <div id="portfolio" class="portfolio__main">
         <script id="portfolio-template" type="text/x-handlebars-template">
           <ul class="portfolio__list">
             {{#each projects}}
-            <li class="portfolio__item">
+            <li class="portfolio__item hidden">
               <a class="portfolio__cover-link" href="{{this.url}}" target="_blank" alt="{{this.name}}">
                 <figure class="portfolio__cover" title="{{this.name}}">
                   {{#if this.covers.[404]}}
-                  <img class="portfolio__cover-image" src="{{this.covers.[404]}}" alt="{{this.name}}">
+                  <img class="portfolio__cover-image" data-src="{{this.covers.[404]}}" alt="{{this.name}}">
                   {{else}}
                   {{#if this.covers.[230]}}
-                  <img class="portfolio__cover-image" src="{{this.covers.[230]}}" alt="{{this.name}}">
+                  <img class="portfolio__cover-image" data-src="{{this.covers.[230]}}" alt="{{this.name}}">
                   {{else}}
-                  <img class="portfolio__cover-image" src="{{this.covers.[202]}}" alt="{{this.name}}">
+                  <img class="portfolio__cover-image" data-src="{{this.covers.[202]}}" alt="{{this.name}}">
                   {{/if}}
                   {{/if}}
                 </figure>
@@ -168,6 +157,7 @@
       </div>
     </div>
   </section>
+  <?php get_footer(); ?>
 
 </body>
 </html>

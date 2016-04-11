@@ -6,7 +6,7 @@ $darktext: rgb(75,82,101);
 $text: rgb(171, 178, 192);
 $hover: rgb(98, 181, 196);
 
-@mixin color-scheme($from, $to, $accent-from, $accent-to){
+@mixin color-scheme($from, $to, $accent-from, $accent-to, $svg){
   background: $from;
   background: linear-gradient(to bottom, $from 0%, $to 100%);
   .header.active {
@@ -16,128 +16,166 @@ $hover: rgb(98, 181, 196);
     background: rgba(255,255,255,0);
   }
   .social a:hover svg path { fill: $accent-from; }
+  .footer a:hover svg path { fill: $accent-from; }
   .typed-cursor { color: $accent-from; }
-  .ripple { background-color: $accent-from; }
-  .header.active .hamburger span:nth-child(1), .header.active .hamburger span:nth-child(3) { background-color: white; }
-  .footer svg:nth-child(1){
+  .ripple { background-color: $svg; }
+  .main svg {
     path {
-      fill: $accent-from;
+      fill: $svg !important;
+    }
+  }
+  .footer {
+    background: #fafafa;
+    border-top: 1px solid rgb(227,227,227);
+    p {
+      color: rgb(105,105,105);
+    }
+    a svg path {
+      fill: $dark;
+    }
+    .column a {
+      color: rgb(43,43,43);
+      &:hover {
+        color: rgb(0,0,238);
+      }
     }
   }
 }
-
-body {
-  &.parra {
-    @include color-scheme($parra_from, $parra_to, $parra_accent, $adapt_accent);
-    .main svg {
-      path {
-        fill: #A88372 !important;
+@mixin darkUI {
+  .portfolio {
+    background: $dark;
+    &__row > h2 {
+      color: $light;
+    }
+    &__item {
+      border: 1px solid $medium;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
+    }
+    &__cover {
+      background-color: #bbb;
+      background-color: $xdark;
+    }
+    a {
+      color: $text;
+      &:hover {
+        color: $hover;
       }
     }
-    .portfolio {
-      background: #fafafa;
-      &__item {
-        background: white;
-        border: 1px solid rgb(227,227,227);
-        box-shadow: 0 1px 3px 0 rgba(0,0,0,.15);
+    &__author {
+      p {
+        color: $darktext;
       }
-      &__cover {
-        background-color: #bbb;
+    }
+    hr {
+      background: $medium;
+    }
+    &__field {
+      &-list {
+        color: $text;
       }
+    }
+    &__footer {
+      background: #f6f6f6;
+      background: #282c35;
+      border-top: 1px solid $medium;
+      span {
+        color: rgb(85,85,85);
+        color: $darktext;
+      }
+      &-likes, &-views {
+        &::before {
+          color: rgb(153,153,153);
+          color: $darktext;
+          // text-shadow: rgba(70,80,98,.25) 0px 1px 0px;
+          text-shadow: rgba(0,0,0,.25) 0px 1px 0px;
+        }
+      }
+    }
+  }
+  .footer {
+    background: $dark;
+    border-top: 1px solid $medium;
+    p {
+      color: $text;
+    }
+    .column a {
+      color: $text;
+      &:hover {
+        color: $hover;
+      }
+      svg path {
+        fill: $text;
+      }
+    }
+  }
+}
+@mixin lightUI {
+  .portfolio {
+    background: #fafafa;
+    &__row > h2 {
+      color: rgb(105,105,105);
       a {
         color: rgb(43,43,43);
         &:hover {
           color: rgb(0,0,238);
         }
       }
-      &__author {
-        p {
-          color: $darktext;
-        }
+    }
+    &__item {
+      border: 1px solid rgb(227,227,227);
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,.15);
+    }
+    &__cover {
+      background-color: #bbb;
+    }
+    a {
+      color: rgb(43,43,43);
+      &:hover {
+        color: rgb(0,0,238);
       }
-      hr {
-        background: rgb(226,226,226);
+    }
+    &__author {
+      p {
+        color: $darktext;
       }
-      &__field {
-        &-list {
-          color: rgb(105,105,105);
-        }
+    }
+    hr {
+      background: rgb(226,226,226);
+    }
+    &__field {
+      &-list {
+        color: rgb(105,105,105);
       }
-      &__footer {
-        background: #f6f6f6;
-        border-top: 1px solid rgb(226,226,226);
-        span {
-          color: rgb(85,85,85);
-        }
-        &-likes, &-views {
-          &::before {
-            color: rgb(153,153,153);
-            text-shadow: rgba(255,255,255,.25) 0px 1px 0px;
-          }
+    }
+    &__footer {
+      background: #f6f6f6;
+      border-top: 1px solid rgb(226,226,226);
+      span {
+        color: rgb(85,85,85);
+      }
+      &-likes, &-views {
+        &::before {
+          color: rgb(153,153,153);
+          text-shadow: rgba(255,255,255,.25) 0px 1px 0px;
         }
       }
     }
+  }
+}
+
+
+body {
+  min-height: 100%;
+  &.parra {
+    @include color-scheme(#2C323C, #2D333D, $parra_accent, $adapt_accent, #2E343F);
+    @include darkUI;
   }
   &.zest {
-    @include color-scheme($zest_from, $zest_to, $zest_accent, $concert_accent);
-    .portfolio {
-      background: $dark;
-      &__item {
-        border: 1px solid $medium;
-        box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
-      }
-      &__cover {
-        background-color: #bbb;
-        background-color: $xdark;
-      }
-      a {
-        color: $text;
-        &:hover {
-          color: $hover;
-        }
-      }
-      &__author {
-        p {
-          color: $darktext;
-        }
-      }
-      hr {
-        background: $medium;
-      }
-      &__field {
-        &-list {
-          color: $text;
-        }
-      }
-      &__footer {
-        background: #f6f6f6;
-        background: #282c35;
-        border-top: 1px solid $medium;
-        span {
-          color: rgb(85,85,85);
-          color: $darktext;
-        }
-        &-likes, &-views {
-          &::before {
-            color: rgb(153,153,153);
-            color: $darktext;
-            // text-shadow: rgba(70,80,98,.25) 0px 1px 0px;
-            text-shadow: rgba(0,0,0,.25) 0px 1px 0px;
-          }
-        }
-      }
-    }
+    @include color-scheme($zest_from, $zest_to, $zest_accent, $concert_accent, #FC38FF);
+    @include darkUI;
   }
-  // &.adapt {
-  //   @include color-scheme($adapt_from, $adapt_to, $adapt_accent, $vibe_accent);
-  // }
-  // &.vibe {
-  //   @include color-scheme($vibe_from, $vibe_to, $vibe_accent, $deep_accent);
-  // }
-  // &.deep {
-  //   @include color-scheme($deep_from, $deep_to, $deep_accent, $zest_accent);
-  // }
-  // &.concert {
-  //   @include color-scheme($concert_from, $concert_to, $concert_accent, $parra_accent);
-  // }
+  &.moon {
+    @include color-scheme($dark, $medium, $parra_accent, $adapt_accent, #23272f);
+    @include darkUI;
+  }
 }

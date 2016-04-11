@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes partialFade{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes slideUp {
   0% {
     top: 1rem;
@@ -16,16 +25,30 @@
   }
 }
 
-@keyframes myOrbit {
-    from { transform: rotate(-150deg) translateX(24vh) rotate(0deg); }
-    to   { transform: rotate(10000deg) translateX(24vh) rotate(20000deg); }
+@keyframes rotational {
+    from {
+      transform: rotate(-150deg);
+    }
+    to   {
+      transform: rotate(5000deg);
+    }
+}
+
+@keyframes crossing {
+    from {
+      top: -100vw;
+    }
+    to   {
+      top: 0vw;
+    }
 }
 
 .main {
-  position: relative;
   z-index: 90;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  min-height: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,9 +56,11 @@
   overflow: hidden;
   transition: opacity 200ms ease;
   cursor: pointer;
+  overflow: hidden;
 
   .orbit {
     position: absolute;
+    overflow: hidden;
     top: 0;
     right: 0;
     height: 100%;
@@ -44,15 +69,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     svg {
+      top: -100vw;
+      left: -110vw;
+      max-height: 200vw;
+      max-width: 200vw;
+      height: 200vw;
+      width: 200vw;
       opacity: 1;
-      max-height: 100px;
-      max-width: 100px;
-      height: 100px;
-      width: 100px;
-      animation: fadeIn 24s 0s forwards, myOrbit 1000s forwards linear;
+      position: absolute;
+      // transform: translate(-100vw, -100vw);
+      animation: rotational 5000s forwards linear;
+      // animation:  partialFade 20s forwards linear, crossing 200s forwards linear;
     }
+
   }
+
 
   .container {
     width: 100%;
@@ -68,8 +101,8 @@
       position: relative;
       top: 1rem;
       opacity: 0;
-      animation: fadeIn 2s .75s forwards ease-out, slideUp .6s .75s forwards ease-out;
-      font-family: "medium", sans-serif;
+      animation: fadeIn 1.5s .5s forwards ease-out, slideUp .6s .5s forwards ease-out;
+      font-family: "medium", graphik, sans-serif;
       color: rgba(255,255,255,1);
       font-size: rem(20px);
       font-weight: 400;
@@ -79,31 +112,14 @@
         font-weight: 400;
       }
     }
-    .cta {
-      margin: 0 1rem;
-      display: inline-block;
-      height: rem(50px);
-      color: $parra_accent;
-      border: 3px solid $parra_accent;
-      padding: .8rem 1.4rem;
-      font-size: 1.25rem;
-      font-weight: 400;
-    }
-  }
-  .arrow {
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    text-align: center;
-    svg {
-      position: relative;
-      opacity: 0;
-      animation: fadeIn 600ms 5s forwards ease-out, slideUp 600ms 5s forwards ease-out;
-      display: inline-block;
-      height: 40px;
-      width: 40px;
+    .resume {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 300;
+      height: 200px;
+      width: 200px;
     }
   }
 }
@@ -164,6 +180,14 @@
   .main .container h1 { font-size: rem(35px); }
 }
 @media screen and (min-width: rem(580px)) {
+  .main .orbit svg {
+    top: -100vw;
+    left: -110vw;
+    max-height: 200vw;
+    max-width: 200vw;
+    height: 200vw;
+    width: 200vw;
+  }
   .main .container h1 { font-size: rem(37px); }
 }
 @media screen and (min-width: rem(620px)) {
@@ -177,4 +201,10 @@
 }
 @media screen and (min-width: rem(800px)) {
   .main .container h1 { font-size: rem(48px); }
+}
+
+@media screen and (max-width: 425px) {
+  .main {
+    // height: 80vh;
+  }
 }
