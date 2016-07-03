@@ -6,6 +6,23 @@
     opacity: 1;
   }
 }
+@keyframes blur-in {
+  0% {
+    opacity: .3;
+    // filter: blur(10px);
+    transform: scale(1.1,1.1);
+  }
+  99%  {
+    opacity: 1;
+    // filter: blur(0px);
+    transform: scale(1,1);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
 $xdark: #181a1f;
 $dark: #21252c;
 $medium: #282c35;
@@ -104,16 +121,22 @@ $text: rgb(75,82,101);
     background-position: center center;
     background-repeat: no-repeat;
     transition: opacity 300ms ease;
+    overflow: hidden;
     &:hover {
       opacity: .8;
       transition: opacity 300ms ease;
     }
-
     &-image {
       display: block;
       opacity: 1;
       max-width: 100%;
-      // animation: appear 1s forwards;
+
+      // opacity: .2;
+      // filter: blur(10px);
+      // transform: scale(1.25,1.25);
+
+      animation: blur-in 1.5s forwards;
+      -webkit-animation: blur-in 1.5s forwards;
     }
   }
   a {

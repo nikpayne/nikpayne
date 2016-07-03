@@ -1,6 +1,6 @@
 @keyframes fadeIn{
   0% {
-    opacity: 0;
+    opacity: .1;
   }
   100% {
     opacity: 1;
@@ -79,9 +79,7 @@
       width: 200vw;
       opacity: 1;
       position: absolute;
-      // transform: translate(-100vw, -100vw);
       animation: rotational 5000s forwards linear;
-      // animation:  partialFade 20s forwards linear, crossing 200s forwards linear;
     }
 
   }
@@ -89,7 +87,6 @@
 
   .container {
     width: 100%;
-    // height: 100%;
     max-width: rem(1135px);
     margin: 0 auto;
     #typed-strings {
@@ -101,7 +98,7 @@
       position: relative;
       top: 1rem;
       opacity: 0;
-      animation: fadeIn 1.5s .5s forwards ease-out, slideUp .6s .5s forwards ease-out;
+      top: 1rem;
       font-family: "medium", graphik, sans-serif;
       color: rgba(255,255,255,1);
       font-size: rem(20px);
@@ -124,17 +121,17 @@
   }
 }
 
-.typed-cursor{
-  opacity: 1;
-  animation: blink 1s infinite;
-}
-
 @keyframes blink{
   0% { opacity:1; }
   20% { opacity:1; }
   50% { opacity:0; }
   80% { opacity:1; }
   100% { opacity:1; }
+}
+
+.typed-cursor{
+  opacity: 1;
+  animation: blink 1s infinite;
 }
 
 .ripple {

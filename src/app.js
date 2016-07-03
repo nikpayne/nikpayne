@@ -406,28 +406,65 @@
 	};
 })(window.jQuery);
 
-(function($) {
-	$(window).load(function() {
-		$("body").removeClass("preload");
-	});
-	$(document).ready(function () {
-		//Fastclick
-		if ('addEventListener' in document) {
-			document.addEventListener('DOMContentLoaded', function() {
-				FastClick.attach(document.body);
-			}, false);
-		}
 
-		//Typing
-		$(".element").typed({
+
+(function($) {
+	// BEGIN LOAD
+	$(window).load(function() {
+		$("body").removeClass("preload"); // PRELOAD
+		var interval = setInterval(function() { // BEGIN INTERVAL
+			$('.hidden').each(function(){
+				if($('.hidden').length === 0){
+					clearInterval(interval);
+				}
+				if($(this).hasClass("headline")){
+					$(this).delay(300).animate({
+						opacity: 1,
+						top: 0
+					}, 600);
+				}
+				var wh = $(window).height(),
+						ww = $(window).width(),
+						st = $(window).scrollTop(),
+						ot =  $(this).offset().top;
+				if(ww > 472){
+					if(st + wh >= ot + 100){
+						var url = $(this).find('.portfolio__cover-image').data('src');
+						$(this).find('.portfolio__cover-image').attr('src', url);
+						if($(this).hasClass("hidden")){
+							$(this).removeClass("hidden");
+						}
+					}
+				} else {
+					if(st + wh >= ot + 50){
+						var url = $(this).find('.portfolio__cover-image').data('src');
+						$(this).find('.portfolio__cover-image').attr('src', url);
+						if($(this).hasClass("hidden")){
+							$(this).removeClass("hidden");
+						}
+					}
+				}
+			});
+		}, 250); // END INTERVAL
+		$('.main').on('click', function (e) { // BUBBLING EFFECT
+			if(event.handled !== true) {
+				loopClasses();
+				var ripple = $('.main').find('.ripple');
+				ripple.removeClass('animate');
+				var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);
+				var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
+				ripple.css({top: y, left: x}).addClass('animate');
+			} else {
+				return false;
+			}
+		}); // END BUBBLING EFFECT
+		$(".element").typed({ // TYPING
 			stringsElement: $('#typed-strings'),
 			typeSpeed: 70,
 			loop: false
 		});
-
-		// Class Rotation
-		function loopClasses(){
-			var classes = ["parra", "moon"];
+		function loopClasses(){ // CLASS ROTATION
+			var classes = ["parra", "zest"];
 			for(var i = 0; i < classes.length; i++){
 				if($('body').hasClass(classes[i])){
 					if(i != classes.length - 1) {
@@ -441,21 +478,19 @@
 				}
 			}
 		}
+	});
+	// END LOAD
 
-		// Bubbling Effect
-		$('.main').on('click', function (e) {
-			if(event.handled !== true) {
-				loopClasses();
-				var ripple = $('.main').find('.ripple');
-				ripple.removeClass('animate');
-				var x = parseInt(e.pageX - $(this).offset().left) - (ripple.width() / 2);
-				var y = parseInt(e.pageY - $(this).offset().top) - (ripple.height() / 2);
-				ripple.css({top: y, left: x}).addClass('animate');
-			} else {
-				return false;
-			}
-		});
 
+
+	// BEGIN READY
+	$(document).ready(function () {
+		//Fastclick
+		if ('addEventListener' in document) {
+			document.addEventListener('DOMContentLoaded', function() {
+				FastClick.attach(document.body);
+			}, false);
+		}
 		// Using Behance API
 		var apiKey  = 'tOiGzovRMz21WNXNg6Dis8mQmkb0Aj77';
 		var userID  = 'nikpayne';
@@ -470,7 +505,6 @@
 			result      = template(projectData);
 			$('#portfolio').html(result);
 		};
-
 		function setFooterTemplate() {
 			var projectData = JSON.parse(sessionStorage.getItem('behanceUser')),
 			footerTemplate  = $('#footer-template').html(),
@@ -478,7 +512,6 @@
 			result        = template(projectData);
 			$('#footer').html(result);
 		};
-
 		if(sessionStorage.getItem('behanceProject')) {
 			setPortfolioTemplate();
 		} else {
@@ -497,32 +530,7 @@
 				setFooterTemplate();
 			});
 		};
-
-		// var target = $(".portfolio").offset().top + 100;
-		var interval = setInterval(function() {
-			$('.hidden').each(function(){
-				if($('.hidden').length === 0){
-					clearInterval(interval);
-				}
-				if($(window).scrollTop() + $(window).height() >= $(this).offset().top + 100){
-					var url = $(this).find('.portfolio__cover-image').data('src');
-					$(this).find('.portfolio__cover-image').attr('src', url);
-					if($(this).hasClass("hidden")){
-						$(this).removeClass("hidden");
-					}
-				}
-			});
-
-		    // if ($(window).scrollTop() + $(window).height() >= target) {
-				// 		$('.hidden').removeClass("hidden");
-				// 		$('img').each(function(){
-				// 			var src = $(this).data('src');
-				// 			$(this).attr("src", src);
-				// 		})
-				// 		$('.portfolio__cover-image').removeClass("hidden");
-		    //     // clearInterval(interval);
-		    // }
-		}, 250);
-
 	});
+	// END READY
+
 })(window.jQuery);

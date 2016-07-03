@@ -54,6 +54,9 @@ $hover: rgb(98, 181, 196);
     &__cover {
       background-color: #bbb;
       background-color: $xdark;
+      &-link:hover + .portfolio__content > a {
+        color: $hover !important;
+      }
     }
     a {
       color: $text;
@@ -127,6 +130,9 @@ $hover: rgb(98, 181, 196);
     }
     &__cover {
       background-color: #bbb;
+      &-link:hover + .portfolio__content > a {
+        color: rgb(0,0,238) !important;
+      }
     }
     a {
       color: rgb(43,43,43);
@@ -171,17 +177,11 @@ body {
     .orbit svg {
       display: none !important;
     }
-    .main {
-      background: url('img/wires.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-    }
     @include darkUI;
   }
   &.zest {
     @include color-scheme($zest_from, $zest_to, $zest_accent, $concert_accent, #FC38FF);
-    @include darkUI;
+    @include lightUI;
   }
   &.moon {
     @include color-scheme($dark, $medium, $parra_accent, $adapt_accent, #23272f);

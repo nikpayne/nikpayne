@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <body class="preload parra <?php if ( is_user_logged_in() ): echo "logged-in"; endif; ?>">
   <header class="header">
-    <ul class="social__main">
+    <ul class="social__main hidden">
       <li class="behance"><a class="social__link" target="_blank" href="http://www.behance.net/nikpayne">
         <svg title="behance icon" width="40px" height="30px" viewBox="0 0 40 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -102,7 +102,7 @@
         endfor;
         ?>
       </aside>
-      <h1 class="headline">Nik Payne is a <span class="dynamic"><span class="element"></span></span><br>from Santa Cruz, California</h1>
+      <h1 class="headline hidden">Nik Payne is a <span class="dynamic"><span class="element"></span></span><br>from Santa Cruz, California</h1>
     </section>
     <div class="ripple"></div>
   </main>
